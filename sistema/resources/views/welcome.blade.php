@@ -1,9 +1,9 @@
 @extends('app')
 
 @section('titulo')
-SEJA BEM VINDO
+Inicio
 @stop
 
 @section('conteudo')
-<h1>Olá Mundo</h1>
+<h1>Olá usuário</h1>
 @stop

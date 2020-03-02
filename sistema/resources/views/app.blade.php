@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistema de apoio a ordem DeMolay Cearense">
-    <title>@yield('titulo')</title>
+    <title>Automax - @yield('titulo')</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
         #loader {
@@ -86,7 +86,7 @@
                                         <div class="logo"><img src="http://wallconect.online/demolayceara/assets/images/iconeGCE.png" width="50" alt=""></div>
                                     </div>
                                     <div class="peer peer-greed">
-                                        <h5 class="lh-1 mB-0 logo-text">SISCE</h5>
+                                        <h5 class="lh-1 mB-0 logo-text">Automax</h5>
                                     </div>
                                 </div>
                             </a></div>
@@ -97,47 +97,23 @@
                     </div>
                 </div>
                 <ul class="sidebar-menu scrollable pos-r">
-                    <li class="nav-item mT-30 active"><a class="sidebar-link" href="sobre" default><span class="icon-holder"><i class="c-blue-500 ti-settings"></i> </span><span class="title">Administração</span></a></li>
 
-                    <li class="nav-item mT-30 active"><a class="sidebar-link" href="" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Inicio</span></a></li>
+                    <li class="nav-item mT-30 active"><a class="sidebar-link" href="{{ url('/') }}" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Inicio</span></a></li>
 
-                    <li class="nav-item"><a class="sidebar-link" href="{{ url('/estruturaAdministrativa') }}"><span class="icon-holder"><i class="c-brown-500 ti-bag"></i> </span><span class="title">Estrutura Administrativa</span></a></li>
-
-                    <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-gallery"></i> </span><span class="title">Galerias</span>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-gallery"></i> </span><span class="title">Serviços</span>
                             <span class="arrow"><i class="ti-angle-right"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="sidebar-link" href="{{ url('/galeria/gme') }}">Past's GME's</a></li>
-                            <li><a class="sidebar-link" href="/galeria/mce">Past's MCE's</a></li>
-                            <li><a class="sidebar-link" href="/galeria/icce">Past's ICCE's</a></li>
-                            <li><a class="sidebar-link" href="/galeria/oficiais_executivos">Past's Oficiais Executivos</a></li>
-                            <li><a class="sidebar-link" href="/galeria/mcr">Past's MCR's</a></li>
-                            <li><a class="sidebar-link" href="/galeria/adace">Past's ADACE</a></li>
-                            <li><a class="sidebar-link" href="/galeria/gcc">Past's GCC</a></li>
+                            <li><a class="sidebar-link" href="{{ url('/galeria/gme') }}"></a></li>
                         </ul>
                     </li>
 
-                    <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-money"></i> </span><span class="title">Portal da
-                                Transparência</span>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-user"></i> </span><span class="title">Usuários </span>
                             <span class="arrow"><i class="ti-angle-right"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="sidebar-link" href="transparencia/gce">GCE</a></li>
-                            <li><a class="sidebar-link" href="transparencia/adace">ADACE</a></li>
+                            <li><a class="sidebar-link" href="{{ url('/usuario/cadastro') }}">Cadastrar</a></li>
+                            <li><a class="sidebar-link" href="{{ url('/usuario/listar') }}">Listar</a></li>
                         </ul>
                     </li>
-
-                    <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-envelope"></i> </span><span class="title">Documentos</span>
-                            <span class="arrow"><i class="ti-angle-right"></i></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="sidebar-link" href="documentos/gce">GCE</a></li>
-                            <li><a class="sidebar-link" href="documentos/ge">GE</a></li>
-                            <li><a class="sidebar-link" href="documentos/icce">ICCE</a></li>
-                            <li><a class="sidebar-link" href="documentos/adace">ADACE</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item"><a class="sidebar-link" href=""><span class="icon-holder"><i class="c-deep-orange-500 ti-save"></i> </span><span class="title">Mídia</span></a></li>
-
-                    <li class="nav-item"><a class="sidebar-link" href=""><span class="icon-holder"><i class="c-deep-purple-500 ti-video-clapper"></i> </span><span class="title">Video Aulas</span></a></li>
 
                     <li class="nav-item"><a class="sidebar-link" href=""><span class="icon-holder"><i class="c-indigo-500 ti-headphone"></i> </span><span class="title">Ouvidoria</span></a></li>
 
@@ -158,7 +134,7 @@
                         <li class="search-input"><input class="form-control" type="text" placeholder="Procurar..."></li>
                     </ul>
                     <ul class="nav-right">
-                        <li class="notifications dropdown"><span class="counter bgc-red">3</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"></i></a>
+                        <li class="notifications dropdown"><span class="counter bgc-red">1</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"></i></a>
                             <ul class="dropdown-menu">
                                 <li class="pX-20 pY-15 bdB"><i class="ti-bell pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Notificações</span></li>
                                 <li>
@@ -169,22 +145,11 @@
                                                     <p class="m-0"><small class="fsz-xs">5 mins ago</small></p>
                                                 </div>
                                             </a></li>
-                                        <li><a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                                                <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/2.jpg" alt=""></div>
-                                                <div class="peer peer-greed"><span><span class="fw-500">Moo Doe</span> <span class="c-grey-600">liked your <span class="text-dark">cover image</span></span></span>
-                                                    <p class="m-0"><small class="fsz-xs">7 mins ago</small></p>
-                                                </div>
-                                            </a></li>
-                                        <li><a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                                                <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/3.jpg" alt=""></div>
-                                                <div class="peer peer-greed"><span><span class="fw-500">Lee Doe</span> <span class="c-grey-600">commented on your <span class="text-dark">video</span></span></span>
-                                                    <p class="m-0"><small class="fsz-xs">10 mins ago</small></p>
-                                                </div>
-                                            </a></li>
+
                                     </ul>
                                 </li>
                                 <li class="pX-20 pY-15 ta-c bdT"><span><a href="" class="c-grey-600 cH-blue fsz-sm td-n">
-                                            kkhjhk<i class="ti-angle-right fsz-xs mL-10"></i></a></span></li>
+                                            Ver todas<i class="ti-angle-right fsz-xs mL-10"></i></a></span></li>
                             </ul>
                         </li>
 
@@ -211,7 +176,7 @@
                 </div>
             </main>
 
-            <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600"><span>Copyright © GCE 2020 <a href="http://demolayceara.org.br" target="_blank" title="Demolay Ceará"> Demolay Ceará</a>. Todos os direitos
+            <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600"><span>Copyright © Automax 2020 <a href="http://demolayceara.org.br" target="_blank" title=""> PreWare Técnologia</a>. Todos os direitos
                     reservados.</span>
                 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="c4c66d0321ac18206eb8bb66-text/javascript"></script>
                 <script type="c4c66d0321ac18206eb8bb66-text/javascript">

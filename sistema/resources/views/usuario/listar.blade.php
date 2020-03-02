@@ -10,7 +10,7 @@ Listar Usuários
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="bgc-white bd bdrs-3 p-20 mB-20">                
+            <div class="bgc-white bd bdrs-3 p-20 mB-20">
                 <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
@@ -37,7 +37,7 @@ Listar Usuários
                             <td>Edinburgh</td>
                             <td>61</td>
                             <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="#">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/usuario/editar/12') }}">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
                             </td>
                         </tr>
 
