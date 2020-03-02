@@ -80,10 +80,10 @@
             <div class="sidebar-inner">
                 <div class="sidebar-logo">
                     <div class="peers ai-c fxw-nw">
-                        <div class="peer peer-greed"><a class="sidebar-link td-n" href="index" class="td-n">
+                        <div class="peer peer-greed"><a class="sidebar-link td-n" href="{{ url('/') }}" class="td-n">
                                 <div class="peers ai-c fxw-nw">
                                     <div class="peer">
-                                        <div class="logo"><img src="http://wallconect.online/demolayceara/assets/images/iconeGCE.png" width="50" alt=""></div>
+                                        <div class="logo"><img src="https://pngimage.net/wp-content/uploads/2018/06/icone-servi%C3%A7os-png-7.png" width="65" alt="40"></div>
                                     </div>
                                     <div class="peer peer-greed">
                                         <h5 class="lh-1 mB-0 logo-text">Automax</h5>
@@ -91,7 +91,7 @@
                                 </div>
                             </a></div>
                         <div class="peer">
-                            <div class="mobile-toggle sidebar-toggle"><a href="" class="td-n"><i class="ti-arrow-circle-left"></i></a>
+                            <div class="mobile-toggle sidebar-toggle"><a href="{{ url('/') }}" class="td-n"><i class="ti-arrow-circle-left"></i></a>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,8 @@
                     <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-gallery"></i> </span><span class="title">Serviços</span>
                             <span class="arrow"><i class="ti-angle-right"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="sidebar-link" href="{{ url('/galeria/gme') }}"></a></li>
+                            <li><a class="sidebar-link" href="{{ url('/servico/cadastro') }}">Cadastrar</a></li>
+                            <li><a class="sidebar-link" href="{{ url('/servico/listar') }}">Listar</a></li>
                         </ul>
                     </li>
 
@@ -176,7 +177,7 @@
                 </div>
             </main>
 
-            <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600"><span>Copyright © Automax 2020 <a href="http://demolayceara.org.br" target="_blank" title=""> PreWare Técnologia</a>. Todos os direitos
+            <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600"><span>Copyright © Automax 2020 <a href="" target="_blank" title=""> PreWare Técnologia</a>. Todos os direitos
                     reservados.</span>
                 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="c4c66d0321ac18206eb8bb66-text/javascript"></script>
                 <script type="c4c66d0321ac18206eb8bb66-text/javascript">

@@ -1,16 +1,16 @@
 @extends('app')
 
 @section('titulo')
-Editar usuário
+Cadastro Usuário
 @stop
 
 @section('conteudo')
-<h3>Editar usuário</h3>
+<h3>Cadastrar serviço</h3>
 
 <div class="masonry-item col-md-12">
     <div class="bgc-white p-20 bd">
         <div class="mT-30">
-            <form method="post" action="">
+            <form method="POST" action="">
                 <div class="form-group"><label for="nome">Nome</label>
                     <input type="text" class="form-control" id="nome" placeholder="Nome">
                 </div>
@@ -20,9 +20,6 @@ Editar usuário
                     </div>
                     <div class="form-group col-md-6"><label for="email">E-mail</label>
                         <input type="email" class="form-control" id="email" placeholder="E-mail">
-                    </div>
-                    <div class="form-group col-md-6"><label for="senha">Senha</label>
-                        <input type="password" class="form-control" id="senha" placeholder="Senha">
                     </div>
                 </div>
                 <div class="form-row">

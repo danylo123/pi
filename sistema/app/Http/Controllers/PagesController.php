@@ -26,4 +26,19 @@ class PagesController extends Controller
     {
         return view('usuario/listar');
     }
+
+    public function cadastroServico()
+    {
+        return view('servico/cadastro');
+    }
+
+    public function editarServico($id)
+    {
+        return view('servico/editar');
+    }
+
+    public function listarServico()
+    {
+        return view('servico/listar');
+    }
 }

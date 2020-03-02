@@ -5,7 +5,7 @@ Listar usuários
 @stop
 
 @section('conteudo')
-<h3>Listar usuários</h3>
+<h3>Listar Usuários</h3>
 
 <div class="container-fluid">
     <div class="row">
@@ -37,7 +37,7 @@ Listar usuários
                             <td>Edinburgh</td>
                             <td>61</td>
                             <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/usuario/editar/12') }}">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/servico/editar/12') }}">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
                             </td>
                         </tr>
 

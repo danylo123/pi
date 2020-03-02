@@ -1,11 +1,11 @@
 @extends('app')
 
 @section('titulo')
-Editar usuário
+Editar serviço
 @stop
 
 @section('conteudo')
-<h3>Editar usuário</h3>
+<h3>Editar serviço</h3>
 
 <div class="masonry-item col-md-12">
     <div class="bgc-white p-20 bd">

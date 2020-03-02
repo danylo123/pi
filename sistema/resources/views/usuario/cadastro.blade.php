@@ -1,11 +1,11 @@
 @extends('app')
 
 @section('titulo')
-Cadastro Usuário
+Cadastro usuário
 @stop
 
 @section('conteudo')
-<h3>Cadastro Usuário</h3>
+<h3>Cadastro usuário</h3>
 
 <div class="masonry-item col-md-12">
     <div class="bgc-white p-20 bd">
