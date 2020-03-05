@@ -30,3 +30,5 @@ Route::get('/servico/listar', 'PagesController@listarServico'); // Tela Listar S
 Route::get('/duvidas', 'PagesController@duvidas'); // Tela Listar Serviço
 
 Route::get('/ouvidoria', 'PagesController@ouvidoria'); // Tela Listar Serviço
+
+Route::get('/perfil', 'PerfilController@perfil'); // Tela Perfil

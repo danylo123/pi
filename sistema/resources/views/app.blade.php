@@ -159,7 +159,7 @@
                                 <div class="peer"><span class="fsz-sm c-grey-900">Usuário</span></div>
                             </a>
                             <ul class="dropdown-menu fsz-sm">
-                                <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-user mR-10"></i>
+                                <li><a href="{{ url('/perfil') }}" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-user mR-10"></i>
                                         <span>Perfil</span></a></li>
                                 <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-email mR-10"></i>
                                         <span>Messagens</span></a></li>
