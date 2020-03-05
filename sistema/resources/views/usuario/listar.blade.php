@@ -14,28 +14,41 @@ Listar usuários
                 <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>CPF</th>
                             <th>Nome</th>
-                            <th>Capitulo</th>
-                            <th>Cidade</th>
+                            <th>E-mail</th>
                             <th>Ação</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
+                            <th>CPF</th>
                             <th>Nome</th>
-                            <th>Capitulo</th>
-                            <th>Cidade</th>
+                            <th>E-mail</th>
                             <th>Ação</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
+                            <td>111.222.333-45</td>
+                            <td>João da Silva</td>
+                            <td>joao_silva@gmail.com</td>
+                            <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/usuario/editar/12') }}">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>111.222.333-45</td>
+                            <td>João da Silva</td>
+                            <td>joao_silva@gmail.com</td>
+                            <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/usuario/editar/12') }}">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>111.222.333-45</td>
+                            <td>João da Silva</td>
+                            <td>joao_silva@gmail.com</td>
                             <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/usuario/editar/12') }}">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
                             </td>

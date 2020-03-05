@@ -116,9 +116,9 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="sidebar-link" href=""><span class="icon-holder"><i class="c-indigo-500 ti-headphone"></i> </span><span class="title">Ouvidoria</span></a></li>
+                    <li class="nav-item"><a class="sidebar-link" href="{{ url('/ouvidoria') }}"><span class="icon-holder"><i class="c-indigo-500 ti-headphone"></i> </span><span class="title">Ouvidoria</span></a></li>
 
-                    <li class="nav-item"><a class="sidebar-link" href=""><span class="icon-holder"><i class="c-light-blue-500 ti-help-alt"></i> </span><span class="title">Dúvidas Frequentes</span></a>
+                    <li class="nav-item"><a class="sidebar-link" href="{{ url('/duvidas') }}"><span class="icon-holder"><i class="c-light-blue-500 ti-help-alt"></i> </span><span class="title">Dúvidas Frequentes</span></a>
                     </li>
 
                 </ul>

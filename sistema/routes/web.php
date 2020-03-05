@@ -26,3 +26,7 @@ Route::get('/servico/cadastro', 'PagesController@cadastroServico'); // Tela Cada
 Route::get('/servico/editar/{id}', 'PagesController@editarServico'); // Tela Editar Serviço
 
 Route::get('/servico/listar', 'PagesController@listarServico'); // Tela Listar Serviço
+
+Route::get('/duvidas', 'PagesController@duvidas'); // Tela Listar Serviço
+
+Route::get('/ouvidoria', 'PagesController@ouvidoria'); // Tela Listar Serviço

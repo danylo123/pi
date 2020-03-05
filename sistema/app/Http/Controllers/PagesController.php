@@ -11,7 +11,6 @@ class PagesController extends Controller
         return view('welcome');
     }
 
-
     public function cadastroUsuario()
     {
         return view('usuario/cadastro');
@@ -40,5 +39,15 @@ class PagesController extends Controller
     public function listarServico()
     {
         return view('servico/listar');
+    }
+
+    public function ouvidoria()
+    {
+        return view('ouvidoria/ouvidoria');
+    }
+
+    public function duvidas()
+    {
+        return view('duvidas_frequentes/duvidas');
     }
 }
