@@ -86,7 +86,7 @@
                                         <div class="logo"><img src="https://pngimage.net/wp-content/uploads/2018/06/icone-servi%C3%A7os-png-7.png" width="65" alt="40"></div>
                                     </div>
                                     <div class="peer peer-greed">
-                                        <h5 class="lh-1 mB-0 logo-text">Automax</h5>
+                                        <h5 class="lh-1 mB-0 logo-text">Service Market</h5>
                                     </div>
                                 </div>
                             </a></div>
@@ -103,19 +103,13 @@
                     <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-gallery"></i> </span><span class="title">Serviços</span>
                             <span class="arrow"><i class="ti-angle-right"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="sidebar-link" href="{{ url('/servico/cadastro') }}">Cadastrar</a></li>
-                            <li><a class="sidebar-link" href="{{ url('/servico/listar') }}">Listar</a></li>
+                            <!-- <li><a class="sidebar-link" href="{{ url('/servico/cadastro') }}">Cadastrar</a></li> -->
+                            <li><a class="sidebar-link" href="{{ url('/servicos') }}">Serviços</a></li>
+                            <li><a class="sidebar-link" href="{{ url('/servicos') }}">Tipos de serviços</a></li>
                         </ul>
                     </li>
 
-                    <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-user"></i> </span><span class="title">Usuários </span>
-                            <span class="arrow"><i class="ti-angle-right"></i></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="sidebar-link" href="{{ url('/usuario/cadastro') }}">Cadastrar</a></li>
-                            <li><a class="sidebar-link" href="{{ url('/usuario/listar') }}">Listar</a></li>
-                        </ul>
-                    </li>
-
+                    <li class="nav-item"><a class="sidebar-link" href="{{ url('/usuarios') }}"><span class="icon-holder"><i class="c-indigo-500 ti-user"></i> </span><span class="title">Usuários</span></a></li>
                     <li class="nav-item"><a class="sidebar-link" href="{{ url('/ouvidoria') }}"><span class="icon-holder"><i class="c-indigo-500 ti-headphone"></i> </span><span class="title">Ouvidoria</span></a></li>
 
                     <li class="nav-item"><a class="sidebar-link" href="{{ url('/duvidas') }}"><span class="icon-holder"><i class="c-light-blue-500 ti-help-alt"></i> </span><span class="title">Dúvidas Frequentes</span></a>

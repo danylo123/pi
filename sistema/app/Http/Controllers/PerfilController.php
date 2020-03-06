@@ -10,4 +10,9 @@ class PerfilController extends Controller
     {
         return view('perfil/perfil');
     }
+
+    public function editar()
+    {
+        return view('perfil/editar');
+    }
 }

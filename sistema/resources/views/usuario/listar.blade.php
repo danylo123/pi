@@ -1,11 +1,12 @@
 @extends('app')
 
 @section('titulo')
-Listar usuários
+Usuários
 @stop
 
 @section('conteudo')
-<h3>Listar usuários</h3>
+<a href="{{ url('/usuario/cadastro') }}" class="btn cur-p btn-primary float-right">Novo</a>
+<h3>Usuários</h3>
 
 <div class="container-fluid">
     <div class="row">
@@ -20,40 +21,17 @@ Listar usuários
                             <th>Ação</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>CPF</th>
-                            <th>Nome</th>
-                            <th>E-mail</th>
-                            <th>Ação</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
+                        @foreach ($usuario as $u)
                         <tr>
-                            <td>111.222.333-45</td>
-                            <td>João da Silva</td>
-                            <td>joao_silva@gmail.com</td>
+                            <td>{{ $u->cpf }}</td>
+                            <td>{{ $u->nome }}</td>
+                            <td>{{ $u->email }}</td>
                             <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/usuario/editar/12') }}">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/usuario/editar/') }}/{{ $u->id }}">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>111.222.333-45</td>
-                            <td>João da Silva</td>
-                            <td>joao_silva@gmail.com</td>
-                            <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/usuario/editar/12') }}">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>111.222.333-45</td>
-                            <td>João da Silva</td>
-                            <td>joao_silva@gmail.com</td>
-                            <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/usuario/editar/12') }}">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
-                            </td>
-                        </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>

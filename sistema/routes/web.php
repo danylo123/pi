@@ -15,20 +15,22 @@ Route::get('/', 'PagesController@index'); // pagina inicial
 
 Route::get('/index', 'PagesController@index'); // pagina inicial 
 
-Route::get('/usuario/cadastro', 'PagesController@cadastroUsuario'); // Tela Cadastro Usuario
+Route::get('/usuario/cadastro', 'UsuarioController@cadastroUsuario'); // Tela Cadastro Usuario
 
-Route::get('/usuario/editar/{id}', 'PagesController@editarUsuario'); // Tela Editar Usuario
+Route::get('/usuario/editar/{id}', 'UsuarioController@editarUsuario'); // Tela Editar Usuario
 
-Route::get('/usuario/listar', 'PagesController@listarUsuario'); // Tela Listar Usuario
+Route::get('/usuarios', 'UsuarioController@usuarios'); // Tela Listar Usuario
 
-Route::get('/servico/cadastro', 'PagesController@cadastroServico'); // Tela Cadastro Serviço
+Route::get('/servico/cadastro', 'ServicoController@cadastroServico'); // Tela Cadastro Serviço
 
-Route::get('/servico/editar/{id}', 'PagesController@editarServico'); // Tela Editar Serviço
+Route::get('/servico/editar/{id}', 'ServicoController@editarServico'); // Tela Editar Serviço
 
-Route::get('/servico/listar', 'PagesController@listarServico'); // Tela Listar Serviço
+Route::get('/servicos', 'ServicoController@listarServico'); // Tela Listar Serviço
 
 Route::get('/duvidas', 'PagesController@duvidas'); // Tela Listar Serviço
 
 Route::get('/ouvidoria', 'PagesController@ouvidoria'); // Tela Listar Serviço
 
 Route::get('/perfil', 'PerfilController@perfil'); // Tela Perfil
+
+Route::get('/perfil/editar', 'PerfilController@editar'); // Tela Editar Perfil

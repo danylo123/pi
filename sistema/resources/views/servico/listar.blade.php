@@ -1,11 +1,12 @@
 @extends('app')
 
 @section('titulo')
-Listar usuários
+Serviços
 @stop
 
 @section('conteudo')
-<h3>Listar Usuários</h3>
+<a href="{{ url('/servico/cadastro') }}" class="btn cur-p btn-primary float-right">Novo</a>
+<h3>Serviços</h3>
 
 <div class="container-fluid">
     <div class="row">
@@ -16,31 +17,23 @@ Listar usuários
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
-                            <th>Capitulo</th>
+                            <th>Categoria</th>
                             <th>Cidade</th>
                             <th>Ação</th>
                         </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nome</th>
-                            <th>Capitulo</th>
-                            <th>Cidade</th>
-                            <th>Ação</th>
-                        </tr>
-                    </tfoot>
+                    </thead>                    
                     <tbody>
+                        @foreach ($servico as $s)
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
+                            <td>{{ $s->id }}</td>
+                            <td>{{ $s->nome }}</td>
+                            <td>{{ $s->tipo_nome }}</td>
+                            <td>{{ $s->cidade }}</td>
                             <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/servico/editar/12') }}">Editar</a> <a class="dropdown-item" href="#">Excluir</a></div>
                             </td>
                         </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
             </div>
