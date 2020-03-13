@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistema de apoio a ordem DeMolay Cearense">
-    <title>Automax - @yield('titulo')</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Automax - @yield('titulo')</title>    
     <style>
         #loader {
             transition: all .3s ease-in-out;
@@ -187,6 +186,9 @@
             </footer>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="<?php echo asset('js/mask.js') ?>"></script>
+    <script src="<?php echo asset('js/jquery.js') ?>"></script>        
     <script type="c4c66d0321ac18206eb8bb66-text/javascript" src="<?php echo asset('js/vendor.js') ?>"></script>
     <script type="c4c66d0321ac18206eb8bb66-text/javascript" src="<?php echo asset('js/bundle.js') ?>"></script>
     <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="c4c66d0321ac18206eb8bb66-|49" defer=""></script>

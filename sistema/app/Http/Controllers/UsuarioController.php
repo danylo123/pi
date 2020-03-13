@@ -30,8 +30,18 @@ class UsuarioController extends Controller
 
         $usuario->nome = Input::get('nome');
         $usuario->cpf = Input::get('cpf');
+        $usuario->cpf = trim($usuario->cpf);
+        $usuario->cpf = str_replace(".", "",$usuario->cpf);
+        $usuario->cpf = str_replace("-", "",$usuario->cpf);
+        $usuario->cpf;       
         $usuario->email = Input::get('email');
         $usuario->telefone = Input::get('telefone');
+        $usuario->telefone = trim($usuario->telefone);
+        $usuario->telefone = str_replace("(", "",$usuario->telefone);
+        $usuario->telefone = str_replace(")", "",$usuario->telefone);
+        $usuario->telefone = str_replace("-", "",$usuario->telefone);
+        $usuario->telefone = str_replace(" ", "",$usuario->telefone);
+        $usuario->telefone;
         $usuario->senha = Input::get('senha');
         $usuario->rua = Input::get('rua');
         $usuario->numero = Input::get('numero');
@@ -54,17 +64,25 @@ class UsuarioController extends Controller
         return view('usuario/editar')->with('usuario', $usuario);
     }
 
-    public function alterar()
+    public function alterar(Request $request)
     {
         $id = Input::get('id');
-        $usuario = Usuario::all();
-        $usuario = Usuario::find($id);
-        $usuario = Usuario::where("id", $id)->get();
+        $usuario = usuario::where('id', $id)->first();
 
         $usuario->nome = Input::get('nome');
         $usuario->cpf = Input::get('cpf');
+        $usuario->cpf = trim($usuario->cpf);
+        $usuario->cpf = str_replace(".", "",$usuario->cpf);
+        $usuario->cpf = str_replace("-", "",$usuario->cpf);
+        $usuario->cpf;       
         $usuario->email = Input::get('email');
         $usuario->telefone = Input::get('telefone');
+        $usuario->telefone = trim($usuario->telefone);
+        $usuario->telefone = str_replace("(", "",$usuario->telefone);
+        $usuario->telefone = str_replace(")", "",$usuario->telefone);
+        $usuario->telefone = str_replace("-", "",$usuario->telefone);
+        $usuario->telefone = str_replace(" ", "",$usuario->telefone);
+        $usuario->telefone;
         $usuario->senha = Input::get('senha');
         $usuario->rua = Input::get('rua');
         $usuario->numero = Input::get('numero');
@@ -74,23 +92,20 @@ class UsuarioController extends Controller
 
         $mensagem = "Usuário editado";
 
-        return view('usuario/listar')->with('mensagem', $mensagem);
+        return redirect('/usuario/editar/' . $id . '')->with('mensagem', $mensagem);
     }
 
-    public function excluir($id, Request $request)
+    public function excluir($id)
     {
-        // Criando um objeto com o id recebido pela rota        
-        Usuario::all();
-        Usuario::find($id);
-        $u = Usuario::where("id", $id)->get();
+        // Criando um objeto com o id recebido pela rota                
+        $usuario = usuario::destroy($id);
 
         // Excluindo este objeto
-        $u->delete();
+        //$usuario->delete();
 
         $mensagem = "Usuário excluído com sucesso!";
+        
 
-        $u = Usuario::all();
-
-        return redirect('/usuario/listar')->with('mensagem', $mensagem);
+        return redirect('/usuarios')->with('mensagem', $mensagem);
     }
 }

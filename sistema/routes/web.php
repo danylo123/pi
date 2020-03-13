@@ -22,7 +22,7 @@ Route::post('/usuario/store', 'UsuarioController@store'); // Tela Cadastro Usuar
 Route::get('/usuario/editar/{id}', 'UsuarioController@editarUsuario'); // Tela Editar Usuario
 Route::post('/usuario/alterar', 'UsuarioController@alterar'); // Tela Cadastro Usuario
 
-Route::delete('/usuario/excluir/{id}', 'UsuarioController@excluir'); // Tela Editar Usuario
+Route::get('/usuario/excluir/{id}', 'UsuarioController@excluir'); // Tela Editar Usuario
 
 Route::get('/usuarios', 'UsuarioController@usuarios'); // Tela Listar Usuario
 
@@ -40,3 +40,4 @@ Route::get('/ouvidoria', 'PagesController@ouvidoria'); // Tela Listar Serviço
 Route::get('/perfil', 'PerfilController@perfil'); // Tela Perfil
 
 Route::get('/perfil/editar', 'PerfilController@editar'); // Tela Editar Perfil
+
