@@ -104,7 +104,7 @@
                         <ul class="dropdown-menu">
                             <!-- <li><a class="sidebar-link" href="{{ url('/servico/cadastro') }}">Cadastrar</a></li> -->
                             <li><a class="sidebar-link" href="{{ url('/servicos') }}">Serviços</a></li>
-                            <li><a class="sidebar-link" href="{{ url('/servicos') }}">Tipos de serviços</a></li>
+                            <li><a class="sidebar-link" href="{{ url('/tipo_servicos') }}">Tipos de serviços</a></li>
                         </ul>
                     </li>
 

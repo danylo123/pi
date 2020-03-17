@@ -10,11 +10,17 @@ class servico extends Model
         'id',
         'nome',
         'descricao',
-        'tipo',        
+        'tipo',
         'rua',
         'numero',
         'bairro',
         'cidade',
         'id_usuario'
     ];
+
+    public function tipo_servico()
+    {
+        return $this->belongsTo(
+            'App\TipoServico'
+        );}
 }

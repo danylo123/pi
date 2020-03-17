@@ -34,6 +34,20 @@ Route::post('/servico/alterar', 'ServicoController@alterar'); // Tela Cadastro U
 Route::get('/servico/excluir/{id}', 'ServicoController@excluir'); // Tela Editar Usuario
 Route::get('/servicos', 'ServicoController@listarServico'); // Tela Listar Serviço
 
+
+Route::get('/tipo_servico/cadastro', 'TipoServicoController@cadastroTipoServico'); // Tela Cadastro Serviço
+Route::post('/tipo_servico/store', 'TipoServicoController@store'); // Tela Cadastro Usuario
+Route::get('/tipo_servico/editar/{id}', 'TipoServicoController@editarTipoServico'); // Tela Editar Serviço
+Route::post('/tipo_servico/alterar', 'TipoServicoController@alterar'); // Tela Cadastro Usuario
+Route::get('/tipo_servico/excluir/{id}', 'TipoServicoController@excluir'); // Tela Editar Usuario
+Route::get('/tipo_servicos', 'TipoServicoController@listarTipoServico'); // Tela Listar Serviço
+
+
+
+
+
+
+
 Route::get('/duvidas', 'PagesController@duvidas'); // Tela Listar Serviço
 
 Route::get('/ouvidoria', 'PagesController@ouvidoria'); // Tela Listar Serviço
@@ -41,3 +55,7 @@ Route::get('/ouvidoria', 'PagesController@ouvidoria'); // Tela Listar Serviço
 Route::get('/perfil', 'PerfilController@perfil'); // Tela Perfil
 
 Route::get('/perfil/editar', 'PerfilController@editar'); // Tela Editar Perfil
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

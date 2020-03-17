@@ -1,12 +1,12 @@
 @extends('app')
 
 @section('titulo')
-Usuários
+Tipo de serviços
 @stop
 
 @section('conteudo')
-<a href="{{ url('/usuario/cadastro') }}" class="btn cur-p btn-primary float-right">Novo</a>
-<h3>Usuários</h3>
+<a href="{{ url('/tipo_servico/cadastro') }}" class="btn cur-p btn-primary float-right">Novo</a>
+<h3>Tipo de serviços</h3>
 
 <div class="container-fluid">
     <div class="row">
@@ -15,29 +15,29 @@ Usuários
                 <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>CPF</th>
+                            <th>ID</th>
                             <th>Nome</th>
-                            <th>E-mail</th>
+                            <th>Data cadastro</th>
                             <th>Ação</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($usuario as $u)
+                        @foreach ($tipo_servico as $s)
                         <tr>
-                            <td>{{ $u->cpf }}</td>
-                            <td>{{ $u->nome }}</td>
-                            <td>{{ $u->email }}</td>
+                            <td>{{ $s->id }}</td>
+                            <td>{{ $s->nome }}</td>
+                            <td>{{ date( 'd/m/Y H:i' , strtotime($s->created_at))}}</td>
                             <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/usuario/editar/') }}/{{ $u->id }}">Editar</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/tipo_servico/editar/') }}/{{ $s->id }}">Editar</a>
                                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#confirm">Excluir</button></div>
                                 <div class="modal fade" id="confirm" role="dialog">
                                     <div class="modal-dialog modal-md">
                                         <div class="modal-content">
                                             <div class="modal-body">
-                                                <p>Deseja realmente excluir <b>{{ $u->nome }}</b>?</p>
+                                                <p>Deseja realmente excluir <b>{{ $s->nome }}</b>?</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <a href="{{ url('/usuario/excluir/') }}/{{ $u->id }}" type="button" class="btn btn-danger" id="delete">Excluir</a>
+                                                <a href="{{ url('/tipo_servico/excluir/') }}/{{ $s->id }}" type="button" class="btn btn-danger" id="delete">Excluir</a>
                                                 <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
                                             </div>
                                         </div>

@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\servico;
+use App\TipoServico;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class ServicoController extends Controller
 {
     public function cadastroServico()
     {
-        return view('servico/cadastro');
+        $tipo_servico = TipoServico::all();
+        return view('servico/cadastro')->with('tipo_servico', $tipo_servico);
     }
 
     public function store(Request $request)
@@ -20,7 +23,7 @@ class ServicoController extends Controller
 
         $servico->nome = Input::get('nome');
         $servico->descricao = Input::get('descricao');
-        $servico->tipo = 1;
+        $servico->tipo_servico_id = Input::get('tipo');
         $servico->rua = Input::get('rua');
         $servico->numero = Input::get('numero');
         $servico->bairro = Input::get('bairro');
@@ -32,7 +35,7 @@ class ServicoController extends Controller
 
         $mensagem = "Serviço cadastrado";
 
-        return view('servico/cadastro')->with('mensagem', $mensagem);
+        return redirect('servico/cadastro')->with('mensagem', $mensagem);
     }
 
 
@@ -42,18 +45,20 @@ class ServicoController extends Controller
         servico::all();
         servico::find($id);
         $servico = servico::where("id", $id)->get();
+
+        $tipo_servico = TipoServico::all();
         // Chama a view listar e envia os produtos buscados
-        return view('servico/editar')->with('servico', $servico);
+        return view('servico/editar')->with('servico', $servico)->with('tipo_servico', $tipo_servico);
     }
 
     public function alterar(Request $request)
     {
         $id = Input::get('id');
         $servico = servico::where('id', $id)->first();
-        
+
         $servico->nome = Input::get('nome');
         $servico->descricao = Input::get('descricao');
-        $servico->tipo = 1;
+        $servico->tipo_servico_id = Input::get('tipo');
         $servico->rua = Input::get('rua');
         $servico->numero = Input::get('numero');
         $servico->bairro = Input::get('bairro');
@@ -85,7 +90,10 @@ class ServicoController extends Controller
     public function listarServico()
     {
         // Busca todos os dados do banco de dados
-        $servico = Servico::all();
+
+        $servico = servico::all();
+                
+
 
         // Chama a view listar e envia os dados buscados
         return view('servico/listar')->with('servico', $servico);

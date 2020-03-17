@@ -19,7 +19,9 @@ Cadastro Usuário
                     <div class="form-group col-md-6"><label for="tipo">Tipo</label>
                         <select class="form-control" id="tipo" name="tipo">
                             <option>Selecione</option>
-                            <option value="1">Construção civil</option>
+                            @foreach ($tipo_servico as $s)
+                            <option value="{{ $s->id }}">{{ $s->nome }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-6"><label for="rua">Rua</label>

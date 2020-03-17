@@ -18,10 +18,11 @@ Editar serviço
                     <div class="form-group col-md-6"><label for="nome">Nome</label>
                         <input type="text" class="form-control" id="nome" value="{{ $s->nome }}" name="nome" placeholder="Nome">
                     </div>
-                    <div class="form-group col-md-6"><label for="tipo">Tipo</label>
-                        <select class="form-control" id="tipo" name="tipo">
-                            <option>Selecione</option>
-                            <option value="1">Construção civil</option>
+                    <div class="form-group col-md-6"><label for="tipo">Categoria do serviço</label>
+                        <select class="form-control" id="tipo" name="tipo">                            
+                            @foreach ($tipo_servico as $ts)                                
+                            <option value="{{ $ts->id }}" @if($ts->id == $s->tipo_servico_id) selected @endif>{{ $ts->nome }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-6"><label for="rua">Rua</label>
