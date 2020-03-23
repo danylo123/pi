@@ -16,14 +16,10 @@ Route::get('/', 'PagesController@index'); // pagina inicial
 Route::get('/index', 'PagesController@index'); // pagina inicial 
 
 Route::get('/usuario/cadastro', 'UsuarioController@cadastroUsuario'); // Tela Cadastro Usuario
-
 Route::post('/usuario/store', 'UsuarioController@store'); // Tela Cadastro Usuario
-
 Route::get('/usuario/editar/{id}', 'UsuarioController@editarUsuario'); // Tela Editar Usuario
 Route::post('/usuario/alterar', 'UsuarioController@alterar'); // Tela Cadastro Usuario
-
 Route::get('/usuario/excluir/{id}', 'UsuarioController@excluir'); // Tela Editar Usuario
-
 Route::get('/usuarios', 'UsuarioController@usuarios'); // Tela Listar Usuario
 
 
@@ -41,10 +37,6 @@ Route::get('/tipo_servico/editar/{id}', 'TipoServicoController@editarTipoServico
 Route::post('/tipo_servico/alterar', 'TipoServicoController@alterar'); // Tela Cadastro Usuario
 Route::get('/tipo_servico/excluir/{id}', 'TipoServicoController@excluir'); // Tela Editar Usuario
 Route::get('/tipo_servicos', 'TipoServicoController@listarTipoServico'); // Tela Listar Serviço
-
-
-
-
 
 
 
