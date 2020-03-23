@@ -16,6 +16,13 @@ class usuario extends Model
         'senha',
         'rua',
         'numero',
-        'bairro'        
+        'bairro'
     ];
+
+    public function nivel()
+    {
+        return $this->belongsTo(
+            'App\Nivel'
+        );
+    }
 }

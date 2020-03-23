@@ -12,9 +12,9 @@ Cadastro usuário
 <div class="masonry-item col-md-12">
     <div class="bgc-white p-20 bd">
         <div class="mT-30">
-            <form method="post" action="{{ url('usuario/store') }}" enctype="application/x-www-form-urlencoded">                
+            <form method="post" action="{{ url('usuario/store') }}" enctype="application/x-www-form-urlencoded">
                 <div class="form-row">
-                <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
+                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
 
                     <div class="form-group col-md-6"><label for="nome">Nome</label>
                         <input type="text" class="form-control" id="nome" name="nome" maxlength="30" placeholder="Nome">
@@ -39,6 +39,14 @@ Cadastro usuário
                     </div>
                     <div class="form-group col-md-6"><label for="bairro">Bairro</label>
                         <input type="text" class="form-control" id="bairro" maxlength="20" name="bairro" placeholder="Bairro">
+                    </div>
+                    <div class="form-group col-md-6"><label for="nivel">Nivel de permissão</label>
+                        <select class="form-control" id="nivel" name="nivel">
+                            <option>Selecione</option>
+                            @foreach ($nivel as $n)
+                            <option value="{{ $n->id }}">{{ $n->nome }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
         </div>

@@ -14,13 +14,13 @@ Editar usuário
         <div class="mT-30">
             <form method="post" action="{{ url('usuario/alterar') }}" enctype="application/x-www-form-urlencoded">
                 @foreach ($usuario as $u)
-                
+
                 <div class="form-row">
-                <div class="form-group col-md-6"><label for="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" maxlength="30" value="{{ $u->nome }}" placeholder="Nome">
-                </div>
-                <input type="hidden" id="id" name="id" class="form-control" required value="{{ $u->id }}">
-                <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
+                    <div class="form-group col-md-6"><label for="nome">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" maxlength="30" value="{{ $u->nome }}" placeholder="Nome">
+                    </div>
+                    <input type="hidden" id="id" name="id" class="form-control" required value="{{ $u->id }}">
+                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
                     <div class="form-group col-md-6"><label for="cpf">CPF</label>
                         <input type="text" class="form-control cpf" id="cpf" name="cpf" value="{{ $u->cpf }}" placeholder="CPF">
                     </div>
@@ -41,6 +41,13 @@ Editar usuário
                     </div>
                     <div class="form-group col-md-6"><label for="bairro">Bairro</label>
                         <input type="text" class="form-control" id="bairro" name="bairro" maxlength="20" value="{{ $u->bairro }}" placeholder="Bairro">
+                    </div>
+                    <div class="form-group col-md-6"><label for="nivel">Nivel de permissão</label>
+                        <select class="form-control" id="nivel" name="nivel">
+                            @foreach ($nivel as $n)
+                            <option value="{{ $n->id }}" @if($n->id == $u->nivel_id) selected @endif>{{ $n->nome }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 @endforeach

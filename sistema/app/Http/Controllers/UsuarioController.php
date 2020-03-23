@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Nivel;
 use Illuminate\Http\Request;
 
 use App\usuario;
@@ -21,7 +22,9 @@ class UsuarioController extends Controller
 
     public function cadastroUsuario()
     {
-        return view('usuario/cadastro');
+        $nivel = Nivel::all();   
+
+        return view('usuario/cadastro')->with('nivel', $nivel);
     }
 
     public function store(Request $request)
@@ -46,12 +49,13 @@ class UsuarioController extends Controller
         $usuario->rua = Input::get('rua');
         $usuario->numero = Input::get('numero');
         $usuario->bairro = Input::get('bairro');
+        $usuario->nivel_id = Input::get('nivel');
 
         $usuario->save();
 
         $mensagem = "Usuario cadastrado";
 
-        return view('usuario/cadastro')->with('mensagem', $mensagem);
+        return redirect('usuario/cadastro')->with('mensagem', $mensagem);
     }
 
     public function editarUsuario($id)
@@ -60,8 +64,10 @@ class UsuarioController extends Controller
         Usuario::all();
         Usuario::find($id);
         $usuario = Usuario::where("id", $id)->get();
+
+        $nivel = Nivel::all();   
         // Chama a view listar e envia os produtos buscados
-        return view('usuario/editar')->with('usuario', $usuario);
+        return view('usuario/editar')->with('usuario', $usuario)->with('nivel', $nivel);
     }
 
     public function alterar(Request $request)
@@ -87,6 +93,7 @@ class UsuarioController extends Controller
         $usuario->rua = Input::get('rua');
         $usuario->numero = Input::get('numero');
         $usuario->bairro = Input::get('bairro');
+        $usuario->nivel_id = Input::get('nivel');
 
         $usuario->save();
 
