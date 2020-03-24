@@ -29,8 +29,8 @@ Usuários
                             <td>{{ $u->email }}</td>
                             <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/usuario/editar/') }}/{{ $u->id }}">Editar</a>
-                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#confirm">Excluir</button></div>
-                                <div class="modal fade" id="confirm" role="dialog">
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#confirm{{ $u->id }}">Excluir</button></div>
+                                <div class="modal fade" id="confirm{{ $u->id }}" role="dialog">
                                     <div class="modal-dialog modal-md">
                                         <div class="modal-content">
                                             <div class="modal-body">

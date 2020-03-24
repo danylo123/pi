@@ -29,8 +29,8 @@ Tipo de serviços
                             <td>{{ date( 'd/m/Y H:i' , strtotime($s->created_at))}}</td>
                             <td><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ação</button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="{{ url('/tipo_servico/editar/') }}/{{ $s->id }}">Editar</a>
-                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#confirm">Excluir</button></div>
-                                <div class="modal fade" id="confirm" role="dialog">
+                                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#confirm{{ $s->id }}">Excluir</button></div>
+                                <div class="modal fade" id="confirm{{ $s->id }}" role="dialog">
                                     <div class="modal-dialog modal-md">
                                         <div class="modal-content">
                                             <div class="modal-body">
