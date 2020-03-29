@@ -20,4 +20,14 @@ class PagesController extends Controller
     {
         return view('duvidas_frequentes/duvidas');
     }
+
+    public function loginCadastro()
+    {
+        return view('login/cadastro');
+    }
+
+    public function login()
+    {
+        return view('login/login');
+    }
 }
