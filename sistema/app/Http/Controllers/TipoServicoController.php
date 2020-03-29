@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\Input;
 
 class TipoServicoController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function cadastroTipoServico()
     {
         return view('tipo_servico/cadastro');

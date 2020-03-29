@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Input;
 
 class UsuarioController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function usuarios()
     {
         // Busca todos os produtos do banco de dados
@@ -22,7 +32,7 @@ class UsuarioController extends Controller
 
     public function cadastroUsuario()
     {
-        $nivel = Nivel::all();   
+        $nivel = Nivel::all();
 
         return view('usuario/cadastro')->with('nivel', $nivel);
     }
@@ -34,16 +44,16 @@ class UsuarioController extends Controller
         $usuario->nome = Input::get('nome');
         $usuario->cpf = Input::get('cpf');
         $usuario->cpf = trim($usuario->cpf);
-        $usuario->cpf = str_replace(".", "",$usuario->cpf);
-        $usuario->cpf = str_replace("-", "",$usuario->cpf);
-        $usuario->cpf;       
+        $usuario->cpf = str_replace(".", "", $usuario->cpf);
+        $usuario->cpf = str_replace("-", "", $usuario->cpf);
+        $usuario->cpf;
         $usuario->email = Input::get('email');
         $usuario->telefone = Input::get('telefone');
         $usuario->telefone = trim($usuario->telefone);
-        $usuario->telefone = str_replace("(", "",$usuario->telefone);
-        $usuario->telefone = str_replace(")", "",$usuario->telefone);
-        $usuario->telefone = str_replace("-", "",$usuario->telefone);
-        $usuario->telefone = str_replace(" ", "",$usuario->telefone);
+        $usuario->telefone = str_replace("(", "", $usuario->telefone);
+        $usuario->telefone = str_replace(")", "", $usuario->telefone);
+        $usuario->telefone = str_replace("-", "", $usuario->telefone);
+        $usuario->telefone = str_replace(" ", "", $usuario->telefone);
         $usuario->telefone;
         $usuario->senha = Input::get('senha');
         $usuario->rua = Input::get('rua');
@@ -65,7 +75,7 @@ class UsuarioController extends Controller
         Usuario::find($id);
         $usuario = Usuario::where("id", $id)->get();
 
-        $nivel = Nivel::all();   
+        $nivel = Nivel::all();
         // Chama a view listar e envia os produtos buscados
         return view('usuario/editar')->with('usuario', $usuario)->with('nivel', $nivel);
     }
@@ -78,16 +88,16 @@ class UsuarioController extends Controller
         $usuario->nome = Input::get('nome');
         $usuario->cpf = Input::get('cpf');
         $usuario->cpf = trim($usuario->cpf);
-        $usuario->cpf = str_replace(".", "",$usuario->cpf);
-        $usuario->cpf = str_replace("-", "",$usuario->cpf);
-        $usuario->cpf;       
+        $usuario->cpf = str_replace(".", "", $usuario->cpf);
+        $usuario->cpf = str_replace("-", "", $usuario->cpf);
+        $usuario->cpf;
         $usuario->email = Input::get('email');
         $usuario->telefone = Input::get('telefone');
         $usuario->telefone = trim($usuario->telefone);
-        $usuario->telefone = str_replace("(", "",$usuario->telefone);
-        $usuario->telefone = str_replace(")", "",$usuario->telefone);
-        $usuario->telefone = str_replace("-", "",$usuario->telefone);
-        $usuario->telefone = str_replace(" ", "",$usuario->telefone);
+        $usuario->telefone = str_replace("(", "", $usuario->telefone);
+        $usuario->telefone = str_replace(")", "", $usuario->telefone);
+        $usuario->telefone = str_replace("-", "", $usuario->telefone);
+        $usuario->telefone = str_replace(" ", "", $usuario->telefone);
         $usuario->telefone;
         $usuario->senha = Input::get('senha');
         $usuario->rua = Input::get('rua');
@@ -111,7 +121,7 @@ class UsuarioController extends Controller
         //$usuario->delete();
 
         $mensagem = "Usuário excluído com sucesso!";
-        
+
 
         return redirect('/usuarios')->with('mensagem', $mensagem);
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 24-Mar-2020 às 18:30
+-- Generation Time: 29-Mar-2020 às 18:41
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `pi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -69,14 +83,7 @@ CREATE TABLE IF NOT EXISTS `servicos` (
   PRIMARY KEY (`id`),
   KEY `id_usuario` (`id_usuario`),
   KEY `tipo` (`tipo_servico_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `servicos`
---
-
-INSERT INTO `servicos` (`id`, `nome`, `descricao`, `tipo_servico_id`, `rua`, `numero`, `bairro`, `cidade`, `id_usuario`, `updated_at`, `created_at`) VALUES
-(13, 'Teste', 'dsdas', 3, 'dsada', '1232', 'eqw', 'Icó/CE', 1, '2020-03-23 18:39:48', '2020-03-23 18:39:48');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -104,6 +111,32 @@ INSERT INTO `tipo_servicos` (`id`, `nome`, `updated_at`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Danylo Alysson Dias de Aquino', 'danyloalyson1@gmail.com', '$2y$10$zR8T/gjvSTFNdb67c48R0uknTWBCxdETSLmfTxMWeTSTS1VfpfLLG', 'Iko8qN71WAEXS4zpBoceXisgQcrJukGNKhIvPCfMzhsGgZK8GhBmYEXEyf02', '2020-03-29 17:37:40', '2020-03-29 17:37:40'),
+(2, 'danylo', 'danylo@gmail.com', '$2y$10$ejwOdhS8UMrM6TXgQc2HR.fhQgtteBnCR.6bgUro.R4.zXcZJbz6y', NULL, '2020-03-29 17:47:46', '2020-03-29 17:47:46');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `usuarios`
 --
 
@@ -123,16 +156,17 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `nivel_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `nivel_id` (`nivel_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `cpf`, `email`, `telefone`, `senha`, `rua`, `numero`, `bairro`, `updated_at`, `created_at`, `nivel_id`) VALUES
-(1, 'Danylo Aquino', '04744707335', 'danyloaquino@grupobrisanet.com.br', '88997662461', 'danylo', 'Avenida Nogueira Acioly', '1565', 'Centro', '2020-03-23 19:29:28', '2020-03-10 14:55:56', 3),
+(1, 'Danylo Aquino', '04744707335', 'danyloaquino@grupobrisanet.com.br', '88997662461', 'danylo', 'Avenida Nogueira Acioly', '1565', 'Centro', '2020-03-26 18:58:58', '2020-03-10 14:55:56', 1),
 (17, 'Silvester Stalone', '12312312312', 'rambo@metralhadora.com', '332333333', '12345', 'qweqweqweqweqweqweqe', 'qweqe', 'qweqweqweqwe', '2020-03-23 18:41:10', '2020-03-12 17:06:02', 1),
-(18, 'testq', '32312312312', '31231212@deqwsd', '21313212133', '31231', 'ewqqqwe', '123', '31231', '2020-03-23 19:24:01', '2020-03-23 19:24:01', 2);
+(18, 'testq', '32312312312', '31231212@deqwsd', '21313212133', '31231', 'ewqqqwe', '123', '31231', '2020-03-23 19:24:01', '2020-03-23 19:24:01', 2),
+(19, 'dsdasdas', '11331231223', 'dasdas@dasda', '31322132231', '21231', 'dds', 'dwdw', 'dsdds', '2020-03-29 13:42:29', '2020-03-29 13:42:29', 2);
 
 --
 -- Constraints for dumped tables

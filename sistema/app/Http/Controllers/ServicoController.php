@@ -11,6 +11,17 @@ use Illuminate\Support\Facades\Input;
 
 class ServicoController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function cadastroServico()
     {
         $tipo_servico = TipoServico::all();
@@ -92,7 +103,7 @@ class ServicoController extends Controller
         // Busca todos os dados do banco de dados
 
         $servico = servico::all();
-                
+
 
 
         // Chama a view listar e envia os dados buscados
