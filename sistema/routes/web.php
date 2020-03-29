@@ -48,12 +48,20 @@ Route::get('/perfil', 'PerfilController@perfil'); // Tela Perfil
 
 Route::get('/perfil/editar', 'PerfilController@editar'); // Tela Editar Perfil
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Login
 
-Route::get('/login/cadastro', 'PagesController@loginCadastro'); // Tela Editar Perfil
-Route::get('/login', 'PagesController@login'); // Tela Editar Perfil
+//Route::get('/login/cadastro', 'PagesController@loginCadastro'); // Tela Editar Perfil
+//Route::get('/login', 'PagesController@login'); // Tela Editar Perfil
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout', 'PagesController@Logout');
+
+
+
+
+

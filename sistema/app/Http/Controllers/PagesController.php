@@ -10,7 +10,7 @@ class PagesController extends Controller
     {
         return view('welcome');
     }
-        
+
     public function ouvidoria()
     {
         return view('ouvidoria/ouvidoria');
@@ -21,13 +21,12 @@ class PagesController extends Controller
         return view('duvidas_frequentes/duvidas');
     }
 
-    public function loginCadastro()
+    public function Logout()
     {
-        return view('login/cadastro');
-    }
+        auth()->logout();
 
-    public function login()
-    {
-        return view('login/login');
+        session()->flash('message', 'Some goodbye message');
+
+        return redirect('/login');
     }
 }
