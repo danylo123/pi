@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistema para divulgação de serviços autonomos">
-    <title>Automax - @yield('titulo')</title>    
+    <title>Automax - @yield('titulo')</title>
     <style>
         #loader {
             transition: all .3s ease-in-out;
@@ -148,8 +148,8 @@
                         </li>
 
                         <li class="dropdown"><a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
-                                <div class="peer mR-10"><img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/10.jpg" alt=""></div>
-                                <div class="peer"><span class="fsz-sm c-grey-900">Usuário</span></div>
+                                <div class="peer mR-10"><img class="w-2r bdrs-50p" src="data:{{ auth()->user()->extensaoImagem }};base64, {{ base64_encode(auth()->user()->imagem) }}" alt=""></div>
+                                <div class="peer"><span class="fsz-sm c-grey-900">{{ auth()->user()->name }}</span></div>
                             </a>
                             <ul class="dropdown-menu fsz-sm">
                                 <li><a href="{{ url('/perfil') }}" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-user mR-10"></i>
@@ -157,7 +157,7 @@
                                 <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-email mR-10"></i>
                                         <span>Messagens</span></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i>
+                                <li><a href="{{ url('/logout') }}" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i>
                                         <span>Sair</span></a></li>
                             </ul>
                         </li>
@@ -188,7 +188,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="<?php echo asset('js/mask.js') ?>"></script>
-    <script src="<?php echo asset('js/jquery.js') ?>"></script>        
+    <script src="<?php echo asset('js/jquery.js') ?>"></script>
     <script type="c4c66d0321ac18206eb8bb66-text/javascript" src="<?php echo asset('js/vendor.js') ?>"></script>
     <script type="c4c66d0321ac18206eb8bb66-text/javascript" src="<?php echo asset('js/bundle.js') ?>"></script>
     <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="c4c66d0321ac18206eb8bb66-|49" defer=""></script>

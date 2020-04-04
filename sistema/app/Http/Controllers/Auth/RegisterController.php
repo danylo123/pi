@@ -49,6 +49,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'cpf' => 'required|string|max:14',
+            'telefone' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -62,8 +64,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $cpf = $data['cpf'];
+        $cpf = trim($cpf);
+        $cpf = str_replace(".", "", $cpf);
+        $cpf = str_replace("-", "", $cpf);
+
+        $telefone = $data['telefone'];
+        $telefone = trim($telefone);
+        $telefone = str_replace("(", "", $telefone);
+        $telefone = str_replace(")", "", $telefone);
+        $telefone = str_replace("-", "", $telefone);
+        $telefone = str_replace(" ", "", $telefone);
+
+
         return User::create([
             'name' => $data['name'],
+            'cpf' => $cpf,
+            'telefone' => $telefone,
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

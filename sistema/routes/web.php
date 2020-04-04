@@ -44,9 +44,8 @@ Route::get('/duvidas', 'PagesController@duvidas'); // Tela Listar Serviço
 
 Route::get('/ouvidoria', 'PagesController@ouvidoria'); // Tela Listar Serviço
 
-Route::get('/perfil', 'PerfilController@perfil'); // Tela Perfil
-
-Route::get('/perfil/editar', 'PerfilController@editar'); // Tela Editar Perfil
+Route::get('/perfil', 'PerfilController@perfil')->name('perfil')->middleware('auth'); // Tela Perfil
+Route::post('/perfil/perfilEditar', 'PerfilController@perfilEditar')->middleware('auth');; // Tela Editar Perfil
 
 
 

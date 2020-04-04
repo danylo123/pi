@@ -15,7 +15,7 @@ class servico extends Model
         'numero',
         'bairro',
         'cidade',
-        'id_usuario'
+        'user_id'
     ];
 
     public function tipo_servico()

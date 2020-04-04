@@ -14,13 +14,16 @@ Perfil
 
                 <div class="form-row">
                     <div class="form-group col-md-6"><label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" disabled placeholder="Nome">
+                        <input type="text" class="form-control" id="nome" value="{{ auth()->user()->name }}" disabled placeholder="Nome">
                     </div>
                     <div class="form-group col-md-6"><label for="cpf">CPF</label>
-                        <input type="number" class="form-control" id="cpf" disabled placeholder="CPF">
+                        <input type="number" class="form-control" id="cpf" value="{{ auth()->user()->cpf }}" disabled placeholder="CPF">
+                    </div>
+                    <div class="form-group col-md-6"><label for="telefone">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" value="{{ auth()->user()->telefone }}" disabled placeholder="E-mail">
                     </div>
                     <div class="form-group col-md-6"><label for="email">E-mail</label>
-                        <input type="email" class="form-control" id="email" disabled placeholder="E-mail">
+                        <input type="email" class="form-control" id="email" value="{{ auth()->user()->email }}" disabled placeholder="E-mail">
                     </div>
                 </div>
                 <div class="form-group">

@@ -25,6 +25,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('cpf') ? ' has-error' : '' }}">
+                            <label for="cpf" class="col-md-4 control-label">CPF</label>
+
+                            <div class="col-md-6">
+                                <input id="cpf" type="text" class="form-control cpf" name="cpf"  value="{{ old('cpf') }}" required>
+
+                                @if ($errors->has('cpf'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cpf') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">
+                            <label for="telefone" class="col-md-4 control-label">Telefone</label>
+
+                            <div class="col-md-6">
+                                <input id="telefone" type="text" class="form-control phone" name="telefone" maxlength="11" value="{{ old('telefone') }}" required>
+
+                                @if ($errors->has('telefone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('telefone') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail</label>
 

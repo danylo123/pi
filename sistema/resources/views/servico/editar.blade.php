@@ -6,7 +6,11 @@ Editar serviço
 
 @section('conteudo')
 <h3>Editar serviço</h3>
-
+@if (session('success'))
+<div class="alert alert-success">
+    {{ session('success')}}
+</div>
+@endif
 <div class="masonry-item col-md-12">
     <div class="bgc-white p-20 bd">
         <div class="mT-30">

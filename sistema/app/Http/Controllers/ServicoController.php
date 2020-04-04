@@ -39,7 +39,7 @@ class ServicoController extends Controller
         $servico->numero = Input::get('numero');
         $servico->bairro = Input::get('bairro');
         $servico->cidade = Input::get('cidade');
-        $servico->id_usuario = 1;
+        $servico->user_id = auth()->user()->id;
 
 
         $servico->save();
@@ -74,7 +74,7 @@ class ServicoController extends Controller
         $servico->numero = Input::get('numero');
         $servico->bairro = Input::get('bairro');
         $servico->cidade = Input::get('cidade');
-        $servico->id_usuario = 1;
+        $servico->user_id = auth()->user()->id;
 
 
         $servico->save();
@@ -98,13 +98,14 @@ class ServicoController extends Controller
         return redirect('/servicos')->with('mensagem', $mensagem);
     }
 
-    public function listarServico()
+    public function listarServico(Request $request)
     {
         // Busca todos os dados do banco de dados
-
-        $servico = servico::all();
-
-
+        $id = auth()->user()->id;
+        servico::all();
+        servico::find($id);
+        $servico = servico::where("user_id", $id)->get();
+    
 
         // Chama a view listar e envia os dados buscados
         return view('servico/listar')->with('servico', $servico);

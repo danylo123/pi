@@ -18,11 +18,36 @@ class PerfilController extends Controller
 
     public function perfil()
     {
-        return view('perfil/perfil');
+        return view('perfil/editar');
     }
 
-    public function editar()
+    public function perfilEditar(Request $resquest)
     {
-        return view('perfil/editar');
+        $data = $resquest->all();
+
+        if ($data['password'] != null) {
+            $data['password'] = bcrypt($data['password']);
+        } else {
+            unset($data['password']);
+        }
+
+        if ($data['imagem'] != null) {           
+            $temp = $data['imagem']->getClientOriginalName();
+            $blob = base64_encode($temp);
+            $data['imagem'] = $blob;
+            $extension = $resquest->imagem->getMimeType();
+            $data['extensaoImagem'] = $extension;
+        } else {
+            unset($data['imagem']);
+        }
+
+
+        $update = auth()->user()->update($data);
+
+        if ($update) {
+            return redirect()->route('perfil')->with('success', 'Sucesso ao atualizar');
+        } else {
+            return redirect()->back()->with('error', 'Falha ao atualizar o perfil...');
+        }
     }
 }
