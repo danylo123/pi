@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Automax</title>
+    <title>Mercado de Serviços</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -31,7 +31,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/login') }}">
-                        Automax
+                        Mercado de Serviços
                     </a>
                 </div>
 
@@ -45,6 +45,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
+                        <li><a href="http://localhost/pi/">Site</a></li>
                         <li><a href="{{ route('login') }}">Entrar</a></li>
                         <li><a href="{{ route('register') }}">Cadastrar</a></li>
                         @else

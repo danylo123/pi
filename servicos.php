@@ -19,17 +19,17 @@
 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-            <a class="navbar-brand" href="">Mercado de Serviços</a>
+            <a class="navbar-brand" href="index.php">Mercado de Serviços</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="">Inicio <span class="sr-only">(atual)</span></a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="servicos.php">Serviços</a>
+                        <a class="nav-link" href="index.php">Inicio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="servicos.php">Serviços <span class="sr-only">(atual)</span></a>
                     </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
@@ -92,62 +92,47 @@
         </div>
 
 
-        <!-- Mensagens de marketing e outras featurezinhas
-      ================================================== -->
-        <!-- Envolve o resto da página em outro container, para centralizar todo o conteúdo. -->
 
         <div class="container marketing">
-           
 
-            <!-- COMEÇAM AS MENCIONADAS FEATUREZINHAS xD -->
+            <div class="row">
 
-            <hr class="featurette-divider">
+                <div class="card-deck mb-3 text-center">
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="http://domusengconstrucao.com.br/wp-content/uploads/carpintaria.jpg" width="100" height="180" alt="{{ $s->nome }}">
+                            <div class="card-body">
+                                <h5 class="card-title">Serviço</h5>
+                                <p class="card-text">Carpintaria</p>
+                                <a class="btn btn-primary btn-block" href="http://localhost/pi/sistema/public/" id="contratar">Contratar</a>
 
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">Primeiro título de featurezinhas. <span class="text-muted">Supreendente, não?!</span></h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-5">
-                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+
+                <div class="card-deck mb-3 text-center">
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="http://domusengconstrucao.com.br/wp-content/uploads/carpintaria.jpg" width="100" height="180" alt="{{ $s->nome }}">
+                            <div class="card-body">
+                                <h5 class="card-title">Serviço</h5>
+                                <p class="card-text">Carpintaria</p>
+                                <a class="btn btn-primary btn-block" href="http://localhost/pi/sistema/public/" id="contratar">Contratar</a>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading">Aêêê, moleque! <span class="text-muted">Tá legal ou não tá?</span></h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">E, por último, essa aqui. <span class="text-muted">Xeque-mate!</span></h2>
-                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                </div>
-                <div class="col-md-5">
-                    <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-                </div>
-            </div>
-
-            <hr class="featurette-divider">
-
-            <!-- /FIM DAS FEATUREZINHAS *-* -->
-
         </div><!-- /.container -->
 
 
         <!-- FOOTER -->
         <footer class="container">
             <p class="float-right"><a href="#">Voltar ao topo</a></p>
-            <p>&copy; Companhia S.A., 2017-2018 &middot; <a href="#">Privacidade</a> &middot; <a href="#">Termos</a></p>
+            <p>&copy; Automax, 2020 &middot; <a href="#">Privacidade</a> &middot; <a href="#">Termos</a></p>
         </footer>
     </main>
 

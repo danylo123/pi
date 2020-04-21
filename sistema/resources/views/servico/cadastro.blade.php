@@ -10,38 +10,33 @@ Cadastro Usuário
 <div class="masonry-item col-md-12">
     <div class="bgc-white p-20 bd">
         <div class="mT-30">
-            <form method="post" action="{{ url('servico/store') }}" enctype="application/x-www-form-urlencoded">
+            <form method="post" action="{{ url('servico/store') }}" enctype="multipart/form-data">
                 <div class="form-row">
                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
                     <div class="form-group col-md-6"><label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required>
                     </div>
                     <div class="form-group col-md-6"><label for="tipo">Tipo</label>
-                        <select class="form-control" id="tipo" name="tipo">
+                        <select class="form-control" id="tipo" name="tipo" required>
                             <option>Selecione</option>
                             @foreach ($tipo_servico as $s)
                             <option value="{{ $s->id }}">{{ $s->nome }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group col-md-6"><label for="rua">Rua</label>
-                        <input type="text" class="form-control" id="rua" name="rua" placeholder="Rua">
+                    <div class="form-group col-md-6"><label for="menor_preco">Menor preço</label>
+                        <input type="text" class="form-control money2" id="menor_preco" name="menor_preco" value="0.00" required>
                     </div>
-                    <div class="form-group col-md-6"><label for="numero">Número</label>
-                        <input type="text" class="form-control" id="numero" name="numero" placeholder="Número">
+                    <div class="form-group col-md-6"><label for="maior_preco">Maior preço</label>
+                        <input type="text" class="form-control money2" id="maior_preco" name="maior_preco" value="0.00" required>
                     </div>
-                    <div class="form-group col-md-6"><label for="bairro">Bairro</label>
-                        <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro">
+                    <div class="form-group col-md-6"><label for="descricao">Descrição</label>
+                        <textarea class="form-control" id="descricao" name="descricao" cols="20" rows="10" required></textarea>
                     </div>
-                    <div class="form-group col-md-6"><label for="cidade">Cidade</label>
-                        <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade/Estado">
+                    <div class="form-group col-md-6"><label for="imagem">Imagem</label><br>
+                        <a href="   " class="btn btn-primary">Adicionar imagens</a>
+                        
                     </div>
-                    <div class="form-group col-md-12"><label for="descricao">Descrição</label>
-                        <textarea name="descricao" class="form-control" id="descricao" name="descricao" cols="20" rows="10"></textarea>
-                    </div>
-                </div>
-                <div class="form-row">
-
                 </div>
                 <div class="form-group">
                 </div><button type="submit" class="btn btn-primary">Salvar</button>

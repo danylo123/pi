@@ -5,19 +5,15 @@ Serviços
 @stop
 
 @section('conteudo')
-<a href="{{ url('/servico/cadastro') }}" class="btn cur-p btn-primary float-right">Novo</a>
-<h3>Meus serviços</h3>
+
+<h3>Todos os serviços</h3>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="bgc-white bd bdrs-3 p-20 mB-20">
                 <div class="row">
-                    @if($servico == null)
-                     <p>Você não possui nenhum serviços cadastrado.</p>
-                    @endif
                     @foreach ($servico as $s)
-
                     <div class="col-md-4">
                         <div class="card" style="width: 250px;">
                             <div id="{{ url('storage/servicos/'.$s->id) }}" class="carousel slide card-img-top" data-ride="carousel">
@@ -31,19 +27,14 @@ Serviços
                                     <?php
                                     $p = true;
                                     ?>
-                                     @foreach ($s->arquivo as $i)
+                                    @foreach ($s->arquivo as $i)
                                     <div class="carousel-item {{ $p ? ' active' : ''}}">
-                                        <img class="d-block w-100" src="{{ url('storage/servicos/'.$i->arquivo) }}" alt="{{ $i->arquivo }}">
+                                        <img class="d-block w-100" src="{{ url('storage/servicos/'.$i->arquivo) }}" alt="{{ $s->nome }}">
                                     </div>
                                     <?php
                                     $p = false;
                                     ?>
                                     @endforeach
-                                    @if($s->arquivo == null)
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-100" src="{{ url('storage/servicos/default.jpg') }}" alt="">
-                                    </div>
-                                    @endif
                                 </div>
 
                                 <a class="carousel-control-prev" href="#{{ $s->id }}" role="button" data-slide="prev">
@@ -59,22 +50,10 @@ Serviços
                             <div class="card-body">
                                 <h5 class="card-title">{{ $s->nome }}</h5>
                                 <p class="card-text">{{ $s->descricao }}</p>
-                                <button class="btn btn-secondary btn-block dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mais</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item btn-block" href="{{ url('/servico/editar/') }}/{{ $s->id }}">Editar</a>
-                                    <button type="button" class="dropdown-item btn-block" data-toggle="modal" data-target="#confirm{{ $s->id }}">Excluir</button></div>
-                                <div class="modal fade" id="confirm{{ $s->id }}" role="dialog">
-                                    <div class="modal-dialog modal-md">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <p>Deseja realmente excluir <b>{{ $s->nome }}</b>?</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="{{ url('/servico/excluir/') }}/{{ $s->id }}" type="button" class="btn btn-danger" id="delete">Excluir</a>
-                                                <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+                                <p class="card-text">{{ $s->user->name }}</p>
+
+                                <a href="{{ url('servico/contratar/'.$s->id) }}" class="btn btn-primary btn-block" type="button" id="dropdownMenuButton">Contratar</a>
                             </div>
                         </div>
                     </div>

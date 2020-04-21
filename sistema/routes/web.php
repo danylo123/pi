@@ -28,7 +28,14 @@ Route::post('/servico/store', 'ServicoController@store'); // Tela Cadastro Usuar
 Route::get('/servico/editar/{id}', 'ServicoController@editarServico'); // Tela Editar Serviço
 Route::post('/servico/alterar', 'ServicoController@alterar'); // Tela Cadastro Usuario
 Route::get('/servico/excluir/{id}', 'ServicoController@excluir'); // Tela Editar Usuario
-Route::get('/servicos', 'ServicoController@listarServico'); // Tela Listar Serviço
+Route::get('/servicos', 'ServicoController@listarServico')->name('servicos'); // Tela Listar Serviço
+Route::get('/servico/{id}/imagem', 'ImagemServicoController@cadastrar'); // Tela Editar Serviço
+Route::post('/servico/imagem/store', 'ImagemServicoController@store'); // Tela Cadastro Usuario
+
+Route::get('/servico_todos', 'ServicoController@listarTodosServico'); // Tela Cadastro Usuario
+Route::get('/servico/contratar/{id}', 'ContratarController@cadastroContrato'); // Tela Cadastro Usuario
+
+
 
 
 Route::get('/tipo_servico/cadastro', 'TipoServicoController@cadastroTipoServico'); // Tela Cadastro Serviço

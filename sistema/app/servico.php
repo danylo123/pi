@@ -10,11 +10,9 @@ class servico extends Model
         'id',
         'nome',
         'descricao',
-        'tipo',
-        'rua',
-        'numero',
-        'bairro',
-        'cidade',
+        'menor_preco',
+        'maior_preco',
+        'tipo_servico_id',
         'user_id'
     ];
 
@@ -22,5 +20,20 @@ class servico extends Model
     {
         return $this->belongsTo(
             'App\TipoServico'
-        );}
+        );
+    }
+
+    public function arquivo()
+    {
+        return $this->hasMany(
+            ImagemServico::class
+        );
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(
+            User::class
+        );
+    }
 }

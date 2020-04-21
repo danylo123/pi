@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Faker\Provider\Image;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManager;
 
 class PerfilController extends Controller
 {
@@ -13,7 +16,7 @@ class PerfilController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth');        
     }
 
     public function perfil()
@@ -21,26 +24,54 @@ class PerfilController extends Controller
         return view('perfil/editar');
     }
 
+
     public function perfilEditar(Request $resquest)
     {
+
+        $user = auth()->user();
+
         $data = $resquest->all();
+
+        $data['imagem'] = $user->imagem;
+
+        if ($resquest->hasFile('imagem') && $resquest->file('imagem')->isValid()) {
+            if ($user->imagem) {
+                $name = $user->imagem;
+            } else {
+                $name = $user->id . kebab_case($user->name);
+            }
+
+            $extenstion = $resquest->imagem->extension();
+            $nameFile = "{$name}.{$extenstion}";
+
+            $data['imagem'] = $nameFile;
+
+            $upload = $resquest->imagem->storeAs('users', $nameFile);
+
+            if (!$upload) {
+                return redirect()->back()->with('error', 'Falha ao realizar upload da imagem');
+            }
+        }
+
+        $cpf = $data['cpf'];
+        $cpf = trim($cpf);
+        $cpf = str_replace(".", "", $cpf);
+        $cpf = str_replace("-", "", $cpf);
+        $data['cpf'] = $cpf;
+
+        $telefone = $data['telefone'];
+        $telefone = trim($telefone);
+        $telefone = str_replace("(", "", $telefone);
+        $telefone = str_replace(")", "", $telefone);
+        $telefone = str_replace("-", "", $telefone);
+        $telefone = str_replace(" ", "", $telefone);
+        $data['telefone'] = $telefone;
 
         if ($data['password'] != null) {
             $data['password'] = bcrypt($data['password']);
         } else {
             unset($data['password']);
         }
-
-        if ($data['imagem'] != null) {           
-            $temp = $data['imagem']->getClientOriginalName();
-            $blob = base64_encode($temp);
-            $data['imagem'] = $blob;
-            $extension = $resquest->imagem->getMimeType();
-            $data['extensaoImagem'] = $extension;
-        } else {
-            unset($data['imagem']);
-        }
-
 
         $update = auth()->user()->update($data);
 
