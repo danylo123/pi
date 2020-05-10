@@ -83,6 +83,7 @@ class RegisterController extends Controller
             'telefone' => $telefone,
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'nivel_id' => 2,
         ]);
     }
 }

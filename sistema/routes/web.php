@@ -32,9 +32,11 @@ Route::get('/servicos', 'ServicoController@listarServico')->name('servicos'); //
 Route::get('/servico/{id}/imagem', 'ImagemServicoController@cadastrar'); // Tela Editar Serviço
 Route::post('/servico/imagem/store', 'ImagemServicoController@store'); // Tela Cadastro Usuario
 
-Route::get('/servico_todos', 'ServicoController@listarTodosServico'); // Tela Cadastro Usuario
+Route::get('/servico_todos', 'ServicoController@listarTodosServico')->name('servico_todos'); // Tela Cadastro Usuario
 Route::get('/servico/contratar/{id}', 'ContratarController@cadastroContrato'); // Tela Cadastro Usuario
 
+Route::post('/servico/contratar/store', 'ContratarController@store'); // Tela Cadastro Usuario
+Route::get('/servicos_contratados', 'ContratarController@servicosContratados'); // Tela Cadastro Usuario
 
 
 

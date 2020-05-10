@@ -102,14 +102,23 @@
                     <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-gallery"></i> </span><span class="title">Serviços</span>
                             <span class="arrow"><i class="ti-angle-right"></i></span></a>
                         <ul class="dropdown-menu">
-                            <!-- <li><a class="sidebar-link" href="{{ url('/servico/cadastro') }}">Cadastrar</a></li> -->
                             <li><a class="sidebar-link" href="{{ url('/servico_todos') }}">Serviços</a></li>
+                            <li><a class="sidebar-link" href="{{ url('/servicos_contratados') }}">Meus contratos</a></li>
                             <li><a class="sidebar-link" href="{{ url('/servicos') }}">Meus Serviços</a></li>
+                            @if(auth()->user()->nivel_id == 1)
                             <li><a class="sidebar-link" href="{{ url('/tipo_servicos') }}">Tipos de serviços</a></li>
+                            @endif
                         </ul>
                     </li>
-
+                    <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-gallery"></i> </span><span class="title">Contratos</span>
+                            <span class="arrow"><i class="ti-angle-right"></i></span></a>
+                        <ul class="dropdown-menu">                            
+                            <li><a class="sidebar-link" href="{{ url('/servicos_contratados') }}">Meus contratos</a></li>                                                        
+                        </ul>
+                    </li>
+                    @if(auth()->user()->nivel_id == 1)
                     <li class="nav-item"><a class="sidebar-link" href="{{ url('/usuarios') }}"><span class="icon-holder"><i class="c-indigo-500 ti-user"></i> </span><span class="title">Usuários</span></a></li>
+                    @endif
                     <li class="nav-item"><a class="sidebar-link" href="{{ url('/ouvidoria') }}"><span class="icon-holder"><i class="c-indigo-500 ti-headphone"></i> </span><span class="title">Ouvidoria</span></a></li>
 
                     <li class="nav-item"><a class="sidebar-link" href="{{ url('/duvidas') }}"><span class="icon-holder"><i class="c-light-blue-500 ti-help-alt"></i> </span><span class="title">Dúvidas Frequentes</span></a>
@@ -156,9 +165,10 @@
                                 {{ url('storage/users/user.png') }}
                                 @endif
                                 " alt="Foto perfil {{ auth()->user()->name }}"></div>
-                                <div class="peer"><span class="fsz-sm c-grey-900">{{ auth()->user()->name }}</span></div>
+                                
+                                <div class="peer"><span class="fsz-sm c-grey-900">{{ collect(explode(' ', auth()->user()->name))->slice(0, 1)->implode(' ') }}</span></div>
                             </a>
-                            
+
                             <ul class="dropdown-menu fsz-sm">
                                 <li><a href="{{ url('/perfil') }}" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-user mR-10"></i>
                                         <span>Perfil</span></a></li>
@@ -174,6 +184,8 @@
             </div>
             <main class="main-content bgc-grey-100">
                 <div id="mainContent">
+                    @include('flash-message')
+
                     @yield('conteudo')
                 </div>
             </main>

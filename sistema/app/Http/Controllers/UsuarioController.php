@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Nivel;
 use Illuminate\Http\Request;
-
-use App\usuario;
+use App\User;
 use Illuminate\Support\Facades\Input;
 
 class UsuarioController extends Controller
@@ -19,11 +18,11 @@ class UsuarioController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function usuarios()
     {
         // Busca todos os produtos do banco de dados
-        $usuario = Usuario::all();
+        $usuario = User::all();
 
         // Chama a view listar e envia os produtos buscados
         return view('usuario/listar')->with('usuario', $usuario);
@@ -39,41 +38,26 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
-        $usuario = new usuario();
+        $usuario = new User();
 
-        $usuario->nome = Input::get('nome');
-        $usuario->cpf = Input::get('cpf');
-        $usuario->cpf = trim($usuario->cpf);
-        $usuario->cpf = str_replace(".", "", $usuario->cpf);
-        $usuario->cpf = str_replace("-", "", $usuario->cpf);
-        $usuario->cpf;
-        $usuario->email = Input::get('email');
-        $usuario->telefone = Input::get('telefone');
-        $usuario->telefone = trim($usuario->telefone);
-        $usuario->telefone = str_replace("(", "", $usuario->telefone);
-        $usuario->telefone = str_replace(")", "", $usuario->telefone);
-        $usuario->telefone = str_replace("-", "", $usuario->telefone);
-        $usuario->telefone = str_replace(" ", "", $usuario->telefone);
-        $usuario->telefone;
-        $usuario->senha = Input::get('senha');
-        $usuario->rua = Input::get('rua');
-        $usuario->numero = Input::get('numero');
-        $usuario->bairro = Input::get('bairro');
-        $usuario->nivel_id = Input::get('nivel');
+        $data = $request->all();
 
-        $usuario->save();
+        $insert = $usuario->save($data);
 
-        $mensagem = "Usuario cadastrado";
+        if ($insert) {
+            return redirect('usuario/cadastro')->with('success', 'Usuário cadastrado com sucesso!');
+        } else {
+            return redirect('usuario/cadastro')->with('error', 'Erro ao cadastrar usuário!');
+        }
 
-        return redirect('usuario/cadastro')->with('mensagem', $mensagem);
     }
 
     public function editarUsuario($id)
     {
         // Busca todos os produtos do banco de dados
-        Usuario::all();
-        Usuario::find($id);
-        $usuario = Usuario::where("id", $id)->get();
+        User::all();
+        User::find($id);
+        $usuario = User::where("id", $id)->get();
 
         $nivel = Nivel::all();
         // Chama a view listar e envia os produtos buscados
@@ -82,40 +66,24 @@ class UsuarioController extends Controller
 
     public function alterar(Request $request)
     {
-        $id = Input::get('id');
-        $usuario = usuario::where('id', $id)->first();
+        $data = $request->all();
 
-        $usuario->nome = Input::get('nome');
-        $usuario->cpf = Input::get('cpf');
-        $usuario->cpf = trim($usuario->cpf);
-        $usuario->cpf = str_replace(".", "", $usuario->cpf);
-        $usuario->cpf = str_replace("-", "", $usuario->cpf);
-        $usuario->cpf;
-        $usuario->email = Input::get('email');
-        $usuario->telefone = Input::get('telefone');
-        $usuario->telefone = trim($usuario->telefone);
-        $usuario->telefone = str_replace("(", "", $usuario->telefone);
-        $usuario->telefone = str_replace(")", "", $usuario->telefone);
-        $usuario->telefone = str_replace("-", "", $usuario->telefone);
-        $usuario->telefone = str_replace(" ", "", $usuario->telefone);
-        $usuario->telefone;
-        $usuario->senha = Input::get('senha');
-        $usuario->rua = Input::get('rua');
-        $usuario->numero = Input::get('numero');
-        $usuario->bairro = Input::get('bairro');
-        $usuario->nivel_id = Input::get('nivel');
+        $usuario = User::find($request->id);
 
-        $usuario->save();
 
-        $mensagem = "Usuário editado";
+        $update = $usuario->update($data);
 
-        return redirect('/usuario/editar/' . $id . '')->with('mensagem', $mensagem);
+        if ($update) {
+            return redirect('/usuario/editar/' . $request->id . '')->with('success', 'Sucesso ao atualizar usuário');
+        } else {
+            return redirect('/usuario/editar/' . $request->id . '')->with('error', 'Falha ao atualizar o usuário...');
+        }
     }
 
     public function excluir($id)
     {
         // Criando um objeto com o id recebido pela rota                
-        $usuario = usuario::destroy($id);
+        $usuario = User::destroy($id);
 
         // Excluindo este objeto
         //$usuario->delete();

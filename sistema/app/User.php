@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'cpf', 'telefone', 'email', 'password',
+        'name', 'cpf', 'telefone', 'email', 'password', 'nivel_id'
     ];
 
     /**
@@ -35,6 +35,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(
             servico::class
+        );
+    }
+
+    public function nivel()
+    {
+        return $this->belongsTo(
+            Nivel::class
         );
     }
 

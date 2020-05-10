@@ -61,7 +61,7 @@ class ImagemServicoController extends Controller
 
 
         if ($insert) {
-            return redirect()->route('servicos')->with('success', 'Cadastrado com sucesso');
+            return redirect()->route('servicos')->with('success', 'Imagem inserida com sucesso');
         } else {
             return redirect()->back()->with('error', 'Falha ao salvar o imagem...');
         }
