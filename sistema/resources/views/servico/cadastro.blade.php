@@ -33,10 +33,6 @@ Cadastro Usuário
                     <div class="form-group col-md-6"><label for="descricao">Descrição</label>
                         <textarea class="form-control" id="descricao" name="descricao" cols="20" rows="10" required></textarea>
                     </div>
-                    <div class="form-group col-md-6"><label for="imagem">Imagem</label><br>
-                        <a href="   " class="btn btn-primary">Adicionar imagens</a>
-                        
-                    </div>
                 </div>
                 <div class="form-group">
                 </div><button type="submit" class="btn btn-primary">Salvar</button>

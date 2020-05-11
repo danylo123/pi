@@ -36,7 +36,9 @@ Route::get('/servico_todos', 'ServicoController@listarTodosServico')->name('serv
 Route::get('/servico/contratar/{id}', 'ContratarController@cadastroContrato'); // Tela Cadastro Usuario
 
 Route::post('/servico/contratar/store', 'ContratarController@store'); // Tela Cadastro Usuario
-Route::get('/servicos_contratados', 'ContratarController@servicosContratados'); // Tela Cadastro Usuario
+Route::get('/servicos_contratados', 'ContratarController@servicosContratados')->name('servicos_contratados'); // Tela Cadastro Usuario
+Route::post('/servico/cancelar_contrato', 'ContratarController@cancelar')->name('servico/cancelar_contrato'); // Tela Cadastro Usuario
+Route::post('/servico/contratos', 'ContratarController@contratos')->name('servico/contratos'); // Tela Cadastro Usuario
 
 
 
@@ -55,6 +57,8 @@ Route::get('/ouvidoria', 'PagesController@ouvidoria'); // Tela Listar Serviço
 
 Route::get('/perfil', 'PerfilController@perfil')->name('perfil')->middleware('auth'); // Tela Perfil
 Route::post('/perfil/perfilEditar', 'PerfilController@perfilEditar')->middleware('auth');; // Tela Editar Perfil
+Route::get('/perfil/endereco', 'EnderecoController@endereco')->name('perfil/endereco');
+Route::post('/perfil/endereco/store', 'EnderecoController@store');
 
 
 

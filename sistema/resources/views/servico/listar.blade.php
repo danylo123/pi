@@ -5,15 +5,14 @@ Serviços
 @stop
 
 @section('conteudo')
-<a href="{{ url('/servico/cadastro') }}" class="btn cur-p btn-primary float-right">Novo</a>
-<a href="{{ url('/contratos') }}" class="btn cur-p btn-primary float-right">Contratos</a>
+<a href="{{ url('/servico/cadastro') }}" class="btn cur-p btn-primary float-right">Novo</a> 
 
 <h3>Meus serviços</h3>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="bgc-white bd bdrs-3 p-20 mB-20">
+            <div class="bgc-white bd bdrs-3 p-20 mB-20">            
                 <div class="row">
                     @if($servico == null)
                     <p>Você não possui nenhum serviços cadastrado.</p>

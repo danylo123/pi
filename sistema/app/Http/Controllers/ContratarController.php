@@ -18,16 +18,30 @@ class ContratarController extends Controller
         $this->middleware('auth');
     }
 
+    public function cancelar(Request $request)
+    {
+        $data = $request->all();
+        $contrato = Contratar::find($request->id);
+        $update = $contrato->update($data);
+
+        if ($update) {
+            return redirect()->route('servicos_contratados')->with('success', 'O contrato foi cancelado com sucesso!');
+        } else {
+            return redirect()->back()->with('error', 'Falha ao cancelar o contrato...');
+        }
+
+    }
+
     public function store(Request $request)
     {
         $servico = new Contratar();
-        
+
         $data = $request->all();
         $servico->user_id = $request->user_id;
         $servico->servico_id = $request->servico_id;
         $servico->estado = "Pendente";
         $servico->observacao = "O proposta foi enviada para o autônomo.";
-      
+
         $insert = $servico->save($data);
         if ($insert) {
             return redirect()->route('servico_todos')->with('success', 'Pedido enviado ao autonomo, aguarde um contato!');
@@ -42,7 +56,7 @@ class ContratarController extends Controller
         return view('servico/contratar')->with('servico', $servico);
     }
 
-    public function servicosContratados()    
+    public function servicosContratados()
     {
         $id = auth()->user()->id;
         $servico = Contratar::where("user_id", $id)->with('servico')->get();

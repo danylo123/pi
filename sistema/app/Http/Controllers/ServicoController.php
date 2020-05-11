@@ -50,7 +50,7 @@ class ServicoController extends Controller
         if ($insert) {
             return redirect()->route('servicos')->with('success', 'Cadastrado com sucesso');
         } else {
-            return redirect()->back()->with('error', 'Falha ao salvar o serviço...');
+            return redirect()->back()->with('error', 'Falha ao cadastrar o serviço...');
         }
     }
 

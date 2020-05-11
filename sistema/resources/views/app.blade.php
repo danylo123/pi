@@ -99,21 +99,21 @@
 
                     <li class="nav-item mT-30 active"><a class="sidebar-link" href="{{ url('/') }}" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Inicio</span></a></li>
 
-                    <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-gallery"></i> </span><span class="title">Serviços</span>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-blue-500 ti-bag"></i> </span><span class="title">Serviços</span>
                             <span class="arrow"><i class="ti-angle-right"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="sidebar-link" href="{{ url('/servico_todos') }}">Serviços</a></li>
-                            <li><a class="sidebar-link" href="{{ url('/servicos_contratados') }}">Meus contratos</a></li>
+                            <li><a class="sidebar-link" href="{{ url('/servico_todos') }}">Serviços</a></li>                            
                             <li><a class="sidebar-link" href="{{ url('/servicos') }}">Meus Serviços</a></li>
                             @if(auth()->user()->nivel_id == 1)
                             <li><a class="sidebar-link" href="{{ url('/tipo_servicos') }}">Tipos de serviços</a></li>
                             @endif
                         </ul>
                     </li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-orange-500 ti-gallery"></i> </span><span class="title">Contratos</span>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-blue-500 ti-file"></i> </span><span class="title">Contratos</span>
                             <span class="arrow"><i class="ti-angle-right"></i></span></a>
                         <ul class="dropdown-menu">                            
-                            <li><a class="sidebar-link" href="{{ url('/servicos_contratados') }}">Meus contratos</a></li>                                                        
+                            <li><a class="sidebar-link" href="{{ url('/servicos_contratados') }}">Contratos</a></li>                                                        
+                            <li><a class="sidebar-link" href="{{ url('/contratos') }}">Meu contratos</a></li>                                                        
                         </ul>
                     </li>
                     @if(auth()->user()->nivel_id == 1)

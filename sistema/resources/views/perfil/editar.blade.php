@@ -5,6 +5,8 @@ Perfil
 @stop
 
 @section('conteudo')
+<a href="{{ url('/perfil/endereco') }}" class="btn cur-p btn-primary float-right">Endereço</a>
+
 <h1>Meu perfil</h1>
 
 <div class="masonry-item col-md-12">
@@ -17,7 +19,7 @@ Perfil
                         <input type="text" class="form-control" id="nome" name="name" required value="{{ auth()->user()->name }}" placeholder="Nome">
                     </div>
                     <div class="form-group col-md-6"><label for="cpf">CPF</label>
-                        <input type="text" class="form-control cpf" id="cpf" name="cpf" required value="{{ auth()->user()->cpf }}" placeholder="CPF">
+                        <input type="text" class="form-control cpf" id="cpf" disabled value="{{ auth()->user()->cpf }}" placeholder="CPF">
                     </div>                    
                     <div class="form-group col-md-6"><label for="telefone">Telefone</label>
                         <input type="text" class="form-control phone" id="telefone" name="telefone" required value="{{ auth()->user()->telefone }}" placeholder="Telefone">

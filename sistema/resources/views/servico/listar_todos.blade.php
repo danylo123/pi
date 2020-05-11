@@ -42,10 +42,10 @@ Serviços
                             </div>
 
                             <div class="card-body">
-                                <h5 class="card-title">Serviço: {{ $s->nome }}</h5>
+                                <h5 class="card-title">{{ $s->nome }}</h5>
                                 <p class="card-text">Descrição: {{ $s->descricao }}</p>
-
-                                <p class="card-text">Autonomo: {{ collect(explode(' ', $s->user->name))->slice(0, 3)->implode(' ') }}</p>
+                                <p class="card-text">Preço: R$ {{ $s->menor_preco }} ~ R$ {{ $s->maior_preco }}</p>
+                                <p class="card-text">Autônomo: {{ collect(explode(' ', $s->user->name))->slice(0, 3)->implode(' ') }}</p>
 
                                 <a href="{{ url('servico/contratar/'.$s->id) }}" class="btn btn-primary btn-block" type="button" id="dropdownMenuButton">Contratar</a>
                             </div>
