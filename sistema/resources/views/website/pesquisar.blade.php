@@ -29,12 +29,16 @@
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url('/pesquisar') }}">Serviços <span class="sr-only">(atual)</span></a>
-                    </li>
-                </ul>
+                    </li>                    
+                </ul>                
                 <form class="form-inline mt-2 mt-md-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search">
                     <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Pesquisar</button>
+                    @if (auth()->user()->id)
+                    <a class="btn btn-outline-dark my-2 my-sm-0" href="{{ url('login') }}">{{ collect(explode(' ', auth()->user()->name))->slice(0, 1)->implode(' ') }}</a>
+                    @else                                     
                     <a class="btn btn-outline-dark my-2 my-sm-0" href="{{ url('login') }}">Entrar</a>
+                    @endif
                 </form>
             </div>
         </nav>

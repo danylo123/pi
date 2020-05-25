@@ -34,7 +34,11 @@
                 <form class="form-inline mt-2 mt-md-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search">
                     <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Pesquisar</button>
+                    @if (auth()->user()->id)
+                    <a class="btn btn-outline-dark my-2 my-sm-0" href="{{ url('login') }}">{{ collect(explode(' ', auth()->user()->name))->slice(0, 1)->implode(' ') }}</a>
+                    @else
                     <a class="btn btn-outline-dark my-2 my-sm-0" href="{{ url('login') }}">Entrar</a>
+                    @endif
                 </form>
             </div>
         </nav>
@@ -96,7 +100,7 @@
         <!-- Envolve o resto da página em outro container, para centralizar todo o conteúdo. -->
 
         <div class="container marketing">
-           
+
 
             <!-- COMEÇAM AS MENCIONADAS FEATUREZINHAS xD -->
 
@@ -156,11 +160,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>
         window.jQuery || document.write("<script src='{{ asset('js/jquery-slim.min.js') }}'><\/script>");
-     </script> 
+    </script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <!-- Só faz o nossos placeholders de imagens funcionarem. Não precisar copiar a próxima linha! -->
-        <script src="{{ asset('js/holder.min.js') }}"></script>
-        </body>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- Só faz o nossos placeholders de imagens funcionarem. Não precisar copiar a próxima linha! -->
+    <script src="{{ asset('js/holder.min.js') }}"></script>
+</body>
 
 </html>
