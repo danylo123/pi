@@ -6,36 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Mercado de Serviços">
     <meta name="author" content="Automax - Serviços">
-    <link rel="icon" href="img/favicon.ico">
+    <link rel="icon" href="">
 
     <title>Mercado de Serviços</title>
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="css/carousel.css" rel="stylesheet">
+    <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
 </head>
 
 <body>
 
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-            <a class="navbar-brand" href="index.php">Mercado de Serviços</a>
+            <a class="navbar-brand" href="{{ url('/') }}">Mercado de Serviços</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Inicio</a>
+                        <a class="nav-link" href="{{ url('/') }}">Inicio</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="servicos.php">Serviços <span class="sr-only">(atual)</span></a>
+                        <a class="nav-link" href="{{ url('/pesquisar') }}">Serviços <span class="sr-only">(atual)</span></a>
                     </li>
                 </ul>
                 <form class="form-inline mt-2 mt-md-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search">
                     <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Pesquisar</button>
-                    <a class="btn btn-outline-dark my-2 my-sm-0" href="http://localhost/pi/sistema/public/">Entrar</a>
+                    <a class="btn btn-outline-dark my-2 my-sm-0" href="{{ url('login') }}">Entrar</a>
                 </form>
             </div>
         </nav>
@@ -92,39 +91,45 @@
         </div>
 
 
-
         <div class="container marketing">
-
             <div class="row">
+                @foreach ($servico as $s)
+                <div class="col-md-4">
+                    <div class="card">
+                        <div id="{{ url('storage/servicos/'.$s->id) }}" class="carousel slide card-img-top" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                @foreach( $s->arquivo as $photo )
+                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+                                @endforeach
+                            </ol>
 
-                <div class="card-deck mb-3 text-center">
-                    <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="http://domusengconstrucao.com.br/wp-content/uploads/carpintaria.jpg" width="100" height="180" alt="{{ $s->nome }}">
-                            <div class="card-body">
-                                <h5 class="card-title">Serviço</h5>
-                                <p class="card-text">Carpintaria</p>
-                                <a class="btn btn-primary btn-block" href="http://localhost/pi/sistema/public/" id="contratar">Contratar</a>
-
+                            <div class="carousel-inner">
+                                @foreach( $s->arquivo as $i )
+                                <div class="carousel-item {{ $loop->first ? ' active' : '' }}">
+                                    <img class="d-block w-100" src="{{ url('storage/servicos/'.$i->arquivo) }}" alt="{{ $s->nome }}">
+                                </div>
+                                @endforeach
                             </div>
+
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Anterior</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Próximo</span>
+                            </a>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $s->nome }}</h5>
+                            <p class="card-text">Margem de preço: R$ {{ $s->menor_preco }} ~ R$ {{ $s->maior_preco }}</p>
+
+                            <a href="{{ url('servico/contratar/'.$s->id) }}" class="btn btn-primary btn-block" type="button" id="dropdownMenuButton">Contratar</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="card-deck mb-3 text-center">
-                    <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="http://domusengconstrucao.com.br/wp-content/uploads/carpintaria.jpg" width="100" height="180" alt="{{ $s->nome }}">
-                            <div class="card-body">
-                                <h5 class="card-title">Serviço</h5>
-                                <p class="card-text">Carpintaria</p>
-                                <a class="btn btn-primary btn-block" href="http://localhost/pi/sistema/public/" id="contratar">Contratar</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div><!-- /.container -->
 
@@ -132,7 +137,7 @@
         <!-- FOOTER -->
         <footer class="container">
             <p class="float-right"><a href="#">Voltar ao topo</a></p>
-            <p>&copy; Automax, 2020 &middot; <a href="#">Privacidade</a> &middot; <a href="#">Termos</a></p>
+            <p>&copy; Companhia S.A., 2017-2018 &middot; <a href="#">Privacidade</a> &middot; <a href="#">Termos</a></p>
         </footer>
     </main>
 
@@ -141,12 +146,12 @@
     <!-- Foi colocado no final para a página carregar mais rápido -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>
-        window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')
+        window.jQuery || document.write("<script src='{{ asset('js/jquery-slim.min.js') }}'><\/script>");
     </script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!-- Só faz o nossos placeholders de imagens funcionarem. Não precisar copiar a próxima linha! -->
-    <script src="js/holder.min.js"></script>
+    <script src="{{ asset('js/holder.min.js') }}"></script>
 </body>
 
 </html>

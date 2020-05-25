@@ -23,7 +23,7 @@ class Contratar extends Model
 
     public function usuario()
     {
-        return $this->hasMany(
+        return $this->belongsTo(
             User::class
         );
     }

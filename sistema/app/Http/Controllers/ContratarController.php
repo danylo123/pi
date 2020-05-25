@@ -18,6 +18,14 @@ class ContratarController extends Controller
         $this->middleware('auth');
     }
 
+    public function contratos()
+    {
+
+        $contrato = Contratar::all();
+
+        return view('servico/contratos')->with('contrato', $contrato);
+    }
+
     public function cancelar(Request $request)
     {
         $data = $request->all();
@@ -25,11 +33,23 @@ class ContratarController extends Controller
         $update = $contrato->update($data);
 
         if ($update) {
-            return redirect()->route('servicos_contratados')->with('success', 'O contrato foi cancelado com sucesso!');
+            return redirect()->route('contratos')->with('success', 'O contrato foi cancelado com sucesso!');
         } else {
             return redirect()->back()->with('error', 'Falha ao cancelar o contrato...');
         }
+    }
 
+    public function aceitar(Request $request)
+    {
+        $data = $request->all();
+        $contrato = Contratar::find($request->id);
+        $update = $contrato->update($data);
+
+        if ($update) {
+            return redirect()->route('contratos')->with('success', 'O contrato foi aceitao com sucesso!');
+        } else {
+            return redirect()->back()->with('error', 'Falha ao aceitar o contrato...');
+        }
     }
 
     public function store(Request $request)

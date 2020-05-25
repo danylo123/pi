@@ -45,7 +45,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                        <li><a href="http://localhost/pi/">Site</a></li>
+                        <li><a href="{{ url('/') }}">Site</a></li>
                         <li><a href="{{ route('login') }}">Entrar</a></li>
                         <li><a href="{{ route('register') }}">Cadastrar</a></li>
                         @else

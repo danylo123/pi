@@ -6,7 +6,7 @@ Serviços
 
 @section('conteudo')
 
-<h3>Serviços contratados</h3>
+<h3>Meus serviços aguardando respostas</h3>
 
 <div class="container-fluid">
     <div class="row">
@@ -14,14 +14,23 @@ Serviços
             <div class="bgc-white bd bdrs-3 p-20 mB-20">
                 <div class="row">
                     <p>
-                        @foreach ($servico as $s)
-                        @if($s->servico->user_id != auth()->user()->id)
+                        @foreach ($contrato as $s)
+                        @if($s->servico->user->id == auth()->user()->id)
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-body">                                    
-                                    @if($s->estado != 'Finalizado' && $s->estado != 'Cancelado')
-                                    <button type="button" class="btn btn-danger float-right" title="Cancelar contrato" data-toggle="modal" data-target="#{{ $s->id }}">
-                                    <i class="c-black-500 ti-close"></i>
+                                <div class="card-body">
+                                    @if($s->estado == 'Pendente')
+                                    <form method="post" action="{{ url('/servico/aceitar_contrato') }}">
+                                        <div class="form-row">
+                                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
+                                            <input type="hidden" name="estado" value="Aceito">
+                                            <input type="hidden" name="id" value="{{ $s->id }}">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary float-right">Aceitar</button>
+                                    </form>
+
+                                    <button type="button" class="btn btn-danger float-right" title="Cancelar" data-toggle="modal" data-target="#{{ $s->id }}">
+                                        Rejeitar
                                     </button>
                                     <div class="modal fade" id="{{ $s->id }}" tabindex="-1" role="dialog" aria-labelledby="cancelar" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
@@ -54,8 +63,8 @@ Serviços
                                     @endif
                                     <h5 class="card-title">Serviço: {{ $s->servico->nome }}</h5>
                                     <p class="card-text">Tipo: {{ $s->servico->tipo_servico->nome }}</p>
-                                    <p class="card-text">Autônomo: {{ $s->servico->user->name }}</p>
-                                    
+                                    <p class="card-text">Solicitante: </p>
+
                                     <a href="#" class="btn 
                                 @if($s->estado == 'Pendente')
                                 btn-warning
@@ -71,6 +80,7 @@ Serviços
                             </div>
                         </div>
                         @endif
+
                         @endforeach
                     </p>
                 </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 11-Maio-2020 às 15:43
+-- Generation Time: 25-Maio-2020 às 16:52
 -- Versão do servidor: 5.7.26
 -- versão do PHP: 7.2.18
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `contratars` (
   PRIMARY KEY (`id`),
   KEY `servico_id` (`servico_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `contratars`
@@ -48,10 +48,11 @@ CREATE TABLE IF NOT EXISTS `contratars` (
 
 INSERT INTO `contratars` (`id`, `servico_id`, `user_id`, `estado`, `observacao`, `updated_at`, `created_at`) VALUES
 (10, 27, 16, 'Cancelado', 'Sem motivo', '2020-05-11 11:25:54', '2020-04-27 18:28:12'),
-(11, 26, 17, 'Pendente', 'A proposta foi enviada para o autônomo.', '2020-04-27 20:01:49', '2020-04-27 20:01:49'),
-(12, 26, 16, 'Cancelado', 'Contrato cancelado pelo contratante', '2020-04-27 21:07:35', '2020-04-27 21:07:35'),
+(11, 26, 17, 'Pendente', 'sdasd', '2020-05-11 20:27:45', '2020-04-27 20:01:49'),
+(12, 26, 16, 'Aceito', 'Contrato cancelado pelo contratante', '2020-05-11 19:58:44', '2020-04-27 21:07:35'),
 (14, 27, 16, 'Finalizado', 'O proposta foi enviada para o autônomo.', '2020-05-10 14:20:45', '2020-05-10 14:20:45'),
-(15, 27, 16, 'Pendente', 'O proposta foi enviada para o autônomo.', '2020-05-10 15:15:47', '2020-05-10 15:15:47');
+(15, 27, 16, 'Cancelado', 'daddas', '2020-05-11 21:35:04', '2020-05-10 15:15:47'),
+(16, 26, 16, 'Pendente', 'O proposta foi enviada para o autônomo.', '2020-05-11 19:33:36', '2020-05-11 19:33:36');
 
 -- --------------------------------------------------------
 
@@ -137,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `nivels` (
   `updated_at` datetime NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `nivels`
@@ -253,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `cpf`, `telefone`, `email`, `password`, `nivel_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 (14, 'dadasda', '12345678911', '13131', 'sdad@dasda.ocm', '$2y$10$5sz61s6G1eSD.NZq3A0/hOQPBk5vlMdGHcY7ICVdKJuqZIUGMT/Qi', 1, 'wXIetYDQahsZ0wA61n27F9FfjanHpRj8WhMvyrb9Zb4ip4qAqU1wI6vUfopA', '2020-04-04 18:28:07', '2020-04-04 18:28:07'),
-(16, 'Danylo Alysson Dias de  Aquino', '04744707335', '88997662468', 'danyloalyson1@gmail.com', '$2y$10$6pwDuIP55nstcByZwCZdO.Vsmm.OPPsXvmW7nIv7UlnvhXKALR7I.', 1, 'IM3z0CsHqX6o06ggimlk7zWREf0v3WZCBF7HJW9m8am5aryVgFuX3cVxDnHq', '2020-04-07 21:47:31', '2020-04-28 01:02:34'),
+(16, 'Danylo Alysson Dias de  Aquino', '04744707335', '88997662468', 'danyloalyson1@gmail.com', '$2y$10$6pwDuIP55nstcByZwCZdO.Vsmm.OPPsXvmW7nIv7UlnvhXKALR7I.', 1, 'o9EHoixCKbBhU3bzJ34gPuYIqxGaMfYDbw3CyGBcKy6jE7sWd9AMSv8Y3Ode', '2020-04-07 21:47:31', '2020-04-28 01:02:34'),
 (17, 'Joao da Silva', '12345678912', '42342342342', 'joao@joao.com', '$2y$10$4.Y8.G9idxHhFjC50ZyT/OAZfgrSpii1K31p2hi1B1jnG0IJXCpXG', 1, 'eI3QUspHiQSKbqUliZG5LITosLwRi9TKoTkCN3vzsOHeL2j1uYtQI1mpekpF', '2020-04-20 22:50:53', '2020-04-27 23:17:08'),
 (18, 'Autonomo', '32112313213', '32312312313', 'teste@teste.com', '$2y$10$lx7GouWwb1UtBZ3bUuSEJeSrGeGihd1VJliBWgcpmTsMLF8x5mswq', 2, '2MvKTnsKXfx1ddxQvIiCEflY5nfYhwFgSkCiC6eF9XAdmxljU8uzWsJ38Pr6', '2020-05-10 17:24:49', '2020-05-10 17:24:49');
 

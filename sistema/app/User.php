@@ -38,6 +38,13 @@ class User extends Authenticatable
         );
     }
 
+    public function contrato()
+    {
+        return $this->hasMany(
+            Contratar::class
+        );
+    }
+
     public function nivel()
     {
         return $this->belongsTo(

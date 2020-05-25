@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/', 'PagesController@index'); // pagina inicial 
+Route::get('/', 'SiteController@site'); // pagina inicial 
+
+Route::get('/pesquisar', 'SiteController@pesquisar')->name('pesquisar'); // pagina inicial 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout', 'PagesController@Logout');
+
 
 Route::get('/index', 'PagesController@index'); // pagina inicial 
 
@@ -38,7 +48,9 @@ Route::get('/servico/contratar/{id}', 'ContratarController@cadastroContrato'); /
 Route::post('/servico/contratar/store', 'ContratarController@store'); // Tela Cadastro Usuario
 Route::get('/servicos_contratados', 'ContratarController@servicosContratados')->name('servicos_contratados'); // Tela Cadastro Usuario
 Route::post('/servico/cancelar_contrato', 'ContratarController@cancelar')->name('servico/cancelar_contrato'); // Tela Cadastro Usuario
-Route::post('/servico/contratos', 'ContratarController@contratos')->name('servico/contratos'); // Tela Cadastro Usuario
+Route::post('/servico/aceitar_contrato', 'ContratarController@aceitar')->name('aceitar_contrato'); // Tela Cadastro Usuario
+
+Route::get('/contratos', 'ContratarController@contratos')->name('contratos'); // Tela Cadastro Usuario
 
 
 
@@ -53,7 +65,9 @@ Route::get('/tipo_servicos', 'TipoServicoController@listarTipoServico'); // Tela
 
 Route::get('/duvidas', 'PagesController@duvidas'); // Tela Listar Serviço
 
-Route::get('/ouvidoria', 'PagesController@ouvidoria'); // Tela Listar Serviço
+Route::get('/ouvidoria', 'OuvidoriaController@ouvidoria')->name('ouvidoria'); // Tela Listar Serviço
+Route::post('/ouvidoria/store', 'OuvidoriaController@store')->name('ouvidoria/store'); // Tela Listar Serviço
+
 
 Route::get('/perfil', 'PerfilController@perfil')->name('perfil')->middleware('auth'); // Tela Perfil
 Route::post('/perfil/perfilEditar', 'PerfilController@perfilEditar')->middleware('auth');; // Tela Editar Perfil
@@ -62,16 +76,6 @@ Route::post('/perfil/endereco/store', 'EnderecoController@store');
 
 
 
-
-//Login
-
-//Route::get('/login/cadastro', 'PagesController@loginCadastro'); // Tela Editar Perfil
-//Route::get('/login', 'PagesController@login'); // Tela Editar Perfil
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/logout', 'PagesController@Logout');
 
 
 
