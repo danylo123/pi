@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\servico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class SiteController extends Controller
 {
@@ -18,5 +19,13 @@ class SiteController extends Controller
         $servico = servico::all();
 
         return view('website/pesquisar')->with('servico', $servico);
+    }
+
+    public function search(Request $request)
+    {
+        $busca = Input::get('txt');
+        $servico = servico::where('nome', 'like', '%'.$busca.'%')->get();
+
+        return view('website/pesquisar')->with('servico', $servico)->with('busca', $busca);
     }
 }

@@ -14,6 +14,7 @@
 Route::get('/', 'SiteController@site'); // pagina inicial 
 
 Route::get('/pesquisar', 'SiteController@pesquisar')->name('pesquisar'); // pagina inicial 
+Route::get('/procurar', 'SiteController@search')->name('procurar'); // pagina inicial 
 
 
 Auth::routes();
