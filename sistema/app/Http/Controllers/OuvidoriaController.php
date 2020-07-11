@@ -42,4 +42,44 @@ class OuvidoriaController extends Controller
             return redirect()->back()->with('error', 'Falha ao enviar mensagem!');
         }
     }
+
+    public function adm()
+    {
+        $ouvidoria = Ouvidoria::all();
+
+        return view('ouvidoria/adm')->with('ouvidoria', $ouvidoria);
+    }
+
+    public function chamado(Request $request, $id)
+    {
+        $ouvidoria = Ouvidoria::where('id', $id)->get();
+
+        return view('ouvidoria/chamado')->with('ouvidoria', $ouvidoria);
+    }
+
+    public function resposta(Request $request, $id)
+    {
+        $ouvidoria = Ouvidoria::where('user_id', $id)->get();
+
+        return view('ouvidoria/chamado_resposta')->with('ouvidoria', $ouvidoria);
+    }
+
+    public function edit(Request $request)
+    {
+        $data['id'] = $request->id;
+        $ouvidoria = Ouvidoria::find($data['id']);
+        $data = $request->all();
+        $data['resposta'] = $request->resposta;
+        $data['estado'] = $request->estado;
+        
+        $update = $ouvidoria->update($data);
+        
+
+        if ($update) {
+            return redirect()->route('ouvidoria/adm')->with('success', 'Chamado respondido com sucesso!');
+        } else {
+            return redirect()->route('ouvidoria/adm')->with('error', 'Falha ao responder chamado!');
+        }
+
+    }
 }

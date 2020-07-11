@@ -13,4 +13,11 @@ class Ouvidoria extends Model
         'user_id',
         'estado'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(
+            User::class
+        );
+    }
 }

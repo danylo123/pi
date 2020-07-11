@@ -13,44 +13,39 @@ Contratar serviço
             <div class="row">
                 @foreach ($servico as $s)
                 <div class="col-md-5">
-                    <div class="card">
-                        <div id="{{ url('storage/servicos/'.$s->id) }}" class="carousel slide card-img-top" data-ride="carousel">
-                            <ol class="carousel-indicators">
+                    <div id="carouselExampleIndicators{{ $s->id }}" class="carousel slide card-img-top" data-ride="carousel">
+                        <ol class="carousel-indicators">
 
-                                @foreach( $s->arquivo as $photo )
-                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
-                                @endforeach
-                            </ol>
+                            @foreach( $s->arquivo as $photo )
+                            <li data-target="#carouselExampleIndicators{{ $s->id }}" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+                            @endforeach
+                        </ol>
 
-                            <div class="carousel-inner">
-                                @foreach( $s->arquivo as $i )
-                                <div class="carousel-item {{ $loop->first ? ' active' : '' }}">
-                                    <img class="d-block w-100" src="{{ url('storage/servicos/'.$i->arquivo) }}" alt="{{ $s->nome }}">
-                                </div>
-
-                                @endforeach
+                        <div class="carousel-inner">
+                            @foreach( $s->arquivo as $i )
+                            <div class="carousel-item {{ $loop->first ? ' active' : '' }}">
+                                <img class="d-block w-100 col-md-12" height="300px" src="{{ url('storage/servicos/'.$i->arquivo) }}" alt="{{ $s->nome }}">
                             </div>
 
-                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Anterior</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Próximo</span>
-                            </a>
+                            @endforeach
                         </div>
 
-                        <div class="card-body">
-                            <h5 class="card-title">Serviço: {{ $s->nome }}</h5>
-                            <p class="card-text">Descrição: {{ $s->descricao }}</p>
-
-                            <p class="card-text">Autonomo: {{ $s->user->name }}</p>
-                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators{{ $s->id }}" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators{{ $s->id }}" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Próximo</span>
+                        </a>
                     </div>
                 </div>
-                @endforeach
-                <div class="col-md-4">
+                <div class="card-body">
+                    <h5 class="card-title">Serviço: {{ $s->nome }}</h5>
+                    <p class="card-text">Categoria: {{ $s->tipo_servico->nome }}</p>
+                    <p class="card-text">Descrição: {{ $s->descricao }}</p>
+                    <p class="card-text">Variação de preço: R${{ $s->menor_preco }} e R${{ $s->maior_preco }}</p>
+                    <p class="card-text">Autonomo: {{ $s->user->name }}</p>
                     <form method="post" action="{{ url('servico/contratar/store') }}">
                         <div class="form-row">
                             <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
@@ -62,7 +57,10 @@ Contratar serviço
                         <div class="form-group">
                         </div><button type="submit" class="btn btn-primary">Solicitar orçamento</button>
                     </form>
+
                 </div>
+
+                @endforeach
             </div>
         </div>
     </div>

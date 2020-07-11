@@ -17,7 +17,7 @@ Cadastro usuário
                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
 
                     <div class="form-group col-md-6"><label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" name="nome" maxlength="30" placeholder="Nome">
+                        <input type="text" class="form-control" id="nome" name="name" maxlength="30" placeholder="Nome">
                     </div>
                     <div class="form-group col-md-6"><label for="cpf">CPF</label>
                         <input type="text" class="form-control cpf" id="cpf" name="cpf" maxlength="11" placeholder="CPF">
@@ -26,20 +26,11 @@ Cadastro usuário
                         <input type="email" class="form-control" id="email" maxlength="60" name="email" placeholder="E-mail">
                     </div>
                     <div class="form-group col-md-6"><label for="senha">Senha</label>
-                        <input type="password" class="form-control" id="senha" maxlength="8" name="senha" placeholder="Senha">
+                        <input type="password" class="form-control" id="senha" maxlength="8" name="password" placeholder="Senha">
                     </div>
                     <div class="form-group col-md-6"><label for="telefone">Telefone</label>
                         <input type="text" class="form-control phone" id="phone" name="telefone" placeholder="Telefone">
-                    </div>
-                    <div class="form-group col-md-6"><label for="rua">Rua</label>
-                        <input type="text" class="form-control" id="rua" maxlength="25" name="rua" placeholder="Rua">
-                    </div>
-                    <div class="form-group col-md-6"><label for="numero">Número</label>
-                        <input type="text" class="form-control" id="numero" maxlength="5" name="numero" placeholder="Número">
-                    </div>
-                    <div class="form-group col-md-6"><label for="bairro">Bairro</label>
-                        <input type="text" class="form-control" id="bairro" maxlength="20" name="bairro" placeholder="Bairro">
-                    </div>
+                    </div>                    
                     <div class="form-group col-md-6"><label for="nivel">Nivel de permissão</label>
                         <select class="form-control" id="nivel" name="nivel">
                             <option>Selecione</option>

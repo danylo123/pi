@@ -7,71 +7,57 @@ Serviços
 
 @section('conteudo')
 
-<h2 class="display-4 text-white">Serviços</h2>
-<p class="lead text-white mb-0">Ache o que você precisa aqui.</p>
+<h2 class="display-4 text-black">Serviços</h2>
+<p class="lead text-black mb-0">Ache o que você precisa aqui.</p>
 <div class="justify-content-center">
     <form action="{{ route('procurar') }}" method="get" class="form-horizontal">
-       
+
         <div class="row">
-            <input class="form-control col-sm-10" type="text" name="txt" id="txt" placeholder="Pesquisar">
+            <input class="form-control col-sm-11" type="text" name="txt" id="txt" placeholder="Pesquisar">
             <button type="submit" class="btn btn-dark">
                 Buscar
             </button>
         </div>
     </form>
 </div>
-<div class="separator"></div>
+<br>
 @if(Route::current()->getName() == 'procurar')
-<p class="lead text-white">Exibindo <u>{{ $servico->count() }}</u> resultados sobre "<u>{{ $busca }}</u>"</p>
+<p class="lead">Exibindo <b>{{ $servico->count() }}</b> resultados sobre "<b>{{ $busca }}</b>"</p>
 @endif
-<div class="row text-black">
-    <div class="col-lg-12 row">
-        @foreach ($servico as $s)
-        <div class="col-md-3">
-            <div class="card">
-                <div id="{{ url('storage/servicos/'.$s->id) }}" class="carousel slide card-img-top" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        @foreach( $s->arquivo as $photo )
-                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
-                        @endforeach
-                    </ol>
+    @foreach ($servico as $s)
+    <div class="media bg-light well col-md-12 rounded">
+        <div id="carouselExampleControls{{ $s->id }}" class="carousel align-self-center col-3" data-ride="carousel">
+            <ol class="carousel-indicators">
+                @foreach( $s->arquivo as $photo )
+                <li data-target="#carouselExampleIndicators{{ $s->id }}" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+                @endforeach
+            </ol>
 
-                    <div class="carousel-inner">
-                        @foreach( $s->arquivo as $i )
-                        <div class="carousel-item {{ $loop->first ? ' active' : '' }}">
-                            <img width='150px' height='150px' class="d-block w-100" src="
-                            @if(empty($i))
-                            {{ url('storage/servicos/default.jpg') }}
-                            @else
-                            {{ url('storage/servicos/'.$i->arquivo) }}
-                            @endif" alt="{{ $s->nome }}">
-                        </div>
-                        @endforeach
-                    </div>
-
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Anterior</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Próximo</span>
-                    </a>
+            <div class="carousel-inner" role="listbox" style="height: 12rem;">
+                @foreach( $s->arquivo as $i )
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <img class="img-fluid" style="height: 50%; width:60%;" src="{{ url('storage/servicos/'.$i->arquivo) }}" alt="{{ $s->nome }}">
                 </div>
-
-                <div class="card-body">
-                    <h6 class="card-title">{{ $s->nome }}</h6>
-                    <span class="badge">Valor: R$ {{ $s->menor_preco }} ~ R$ {{ $s->maior_preco }}</span>
-                    <span class="badge">Autônomo: {{ collect(explode(' ', $s->user->name))->slice(0, 1)->implode(' ') }}</span>
-                    <a href="{{ url('servico/contratar/'.$s->id) }}" class="btn btn-primary btn-block" type="button" id="dropdownMenuButton">Contratar</a>
-                </div>
+                @endforeach
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls{{ $s->id }}" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls{{ $s->id }}" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        @endforeach
-
+        <div class="media-body">
+            <h5 class="mt-0">{{ $s->nome }}</h5>
+            <p>Descrição: {{ $s->descricao }}<br>
+                Variação de preço: R$ {{ $s->menor_preco }} ~ R$ {{ $s->maior_preco }}<br>
+                Autônomo: {{ collect(explode(' ', $s->user->name))->slice(0, 3)->implode(' ') }}</p>
+            <a href="{{ url('servico/contratar/'.$s->id) }}" class="btn btn-primary" type="button">Contratar</a>
+        </div>
     </div>
+    <hr class="featurette-divider">
 
-
-
-</div>
+    @endforeach
 @stop

@@ -8,7 +8,7 @@ Inicio
 <h1>Olá {{ auth()->user()->name }}</h1>
 
 <div class="panel-body">    
-    Você logou com sucesso!
+    Bem vindo ao Mercado de Serviços!
 </div>
 
 @stop

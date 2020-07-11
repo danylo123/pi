@@ -37,7 +37,7 @@ class PagesController extends Controller
     {
         auth()->logout();
 
-        session()->flash('message', 'Some goodbye message');
+        session()->flash('message', 'Até logo!');
 
         return redirect('/login');
     }

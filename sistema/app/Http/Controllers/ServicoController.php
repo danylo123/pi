@@ -99,9 +99,7 @@ class ServicoController extends Controller
     {
         $data = $resquest->all();
         $servico = servico::find($resquest->id);
-
         $update = $servico->update($data);
-
 
         if ($update) {
             return redirect()->route('servicos')->with('success', 'Sucesso ao atualizar serviço');

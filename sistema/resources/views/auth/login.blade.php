@@ -2,9 +2,9 @@
 
 @section('conteudo')
 <div class="container">
-    <div class="panel panel-default text-white">
+    <div class="panel panel-default">
         <div class="panel-heading">
-            <h2 class="display-4 text-white">Entrar</h2>
+            <h2 class="display-4">Entrar</h2>
         </div>
 
         <div class="panel-body d-flex justify-content-center">

@@ -13,6 +13,9 @@ Ouvidoria
                 <div class="form-row">
                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
                     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                    <div class="col-md-12">
+                        <a href="{{ url('ouvidoria/chamado/respostas/'.auth()->user()->id) }}" class="btn cur-p btn-primary float-right">Visualizar meus tickets</a>
+                    </div>
                     <div class="form-group col-md-12"><label for="assunto">Assunto</label>
                         <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Assunto" required>
                     </div>

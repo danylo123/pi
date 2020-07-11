@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sistema para divulgação de serviços autonomos">
-    <title>Automax - @yield('titulo')</title>
+    <meta name="description" content="Aplicação para divulgação de serviços autônomos">
+    <title>Mercado de serviços | @yield('titulo')</title>
+    <link rel="icon" href="{{ url('/images/logo.png') }}">
+
     <style>
         #loader {
             transition: all .3s ease-in-out;
@@ -82,27 +84,27 @@
                         <div class="peer peer-greed"><a class="sidebar-link td-n" href="{{ url('/') }}" class="td-n">
                                 <div class="peers ai-c fxw-nw">
                                     <div class="peer">
-                                        <div class="logo"><img src="https://pngimage.net/wp-content/uploads/2018/06/icone-servi%C3%A7os-png-7.png" width="65" alt="40"></div>
+                                        <div class="logo"><img src="{{ url('/images/logo.png') }}" width="65" alt="40"></div>
                                     </div>
                                     <div class="peer peer-greed">
-                                        <h5 class="lh-1 mB-0 logo-text">Service Market</h5>
+                                        <h5 class="lh-1 mB-0 logo-text">Mercado de Serviços</h5>
                                     </div>
                                 </div>
                             </a></div>
                         <div class="peer">
-                            <div class="mobile-toggle sidebar-toggle"><a href="{{ url('/') }}" class="td-n"><i class="ti-arrow-circle-left"></i></a>
+                            <div class="mobile-toggle sidebar-toggle"><a href="{{ url('/home') }}" class="td-n"><i class="ti-arrow-circle-left"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <ul class="sidebar-menu scrollable pos-r">
 
-                    <li class="nav-item mT-30 active"><a class="sidebar-link" href="{{ url('/') }}" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Inicio</span></a></li>
+                    <li class="nav-item mT-30 active"><a class="sidebar-link" href="{{ url('/home') }}" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Inicio</span></a></li>
 
                     <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-blue-500 ti-bag"></i> </span><span class="title">Serviços</span>
                             <span class="arrow"><i class="ti-angle-right"></i></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="sidebar-link" href="{{ url('/servico_todos') }}">Serviços</a></li>                            
+                            <li><a class="sidebar-link" href="{{ url('/servico_todos') }}">Serviços</a></li>
                             <li><a class="sidebar-link" href="{{ url('/servicos') }}">Meus Serviços</a></li>
                             @if(auth()->user()->nivel_id == 1)
                             <li><a class="sidebar-link" href="{{ url('/tipo_servicos') }}">Tipos de serviços</a></li>
@@ -111,16 +113,18 @@
                     </li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle" href="javascript:void(0);"><span class="icon-holder"><i class="c-blue-500 ti-file"></i> </span><span class="title">Contratos</span>
                             <span class="arrow"><i class="ti-angle-right"></i></span></a>
-                        <ul class="dropdown-menu">                            
-                            <li><a class="sidebar-link" href="{{ url('/servicos_contratados') }}">Contratos</a></li>                                                        
-                            <li><a class="sidebar-link" href="{{ url('/contratos') }}">Meu contratos</a></li>                                                        
+                        <ul class="dropdown-menu">
+                            <li><a class="sidebar-link" href="{{ url('/servicos_contratados') }}">Contratos</a></li>
+                            <li><a class="sidebar-link" href="{{ url('/contratos') }}">Meu contratos</a></li>
                         </ul>
                     </li>
                     @if(auth()->user()->nivel_id == 1)
                     <li class="nav-item"><a class="sidebar-link" href="{{ url('/usuarios') }}"><span class="icon-holder"><i class="c-indigo-500 ti-user"></i> </span><span class="title">Usuários</span></a></li>
                     @endif
                     <li class="nav-item"><a class="sidebar-link" href="{{ url('/ouvidoria') }}"><span class="icon-holder"><i class="c-indigo-500 ti-headphone"></i> </span><span class="title">Ouvidoria</span></a></li>
-
+                    @if(auth()->user()->nivel_id == 1)
+                    <li class="nav-item"><a class="sidebar-link" href="{{ url('/ouvidoria/adm') }}"><span class="icon-holder"><i class="c-indigo-500 ti-headphone"></i> </span><span class="title">Chamados</span></a></li>
+                    @endif
                     <li class="nav-item"><a class="sidebar-link" href="{{ url('/duvidas') }}"><span class="icon-holder"><i class="c-light-blue-500 ti-help-alt"></i> </span><span class="title">Dúvidas Frequentes</span></a>
                     </li>
 
@@ -138,6 +142,7 @@
                         <li class="search-input"><input class="form-control" type="text" placeholder="Procurar..."></li>
                     </ul>
                     <ul class="nav-right">
+                        <!--
                         <li class="notifications dropdown"><span class="counter bgc-red">1</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"></i></a>
                             <ul class="dropdown-menu">
                                 <li class="pX-20 pY-15 bdB"><i class="ti-bell pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Notificações</span></li>
@@ -156,6 +161,7 @@
                                             Ver todas<i class="ti-angle-right fsz-xs mL-10"></i></a></span></li>
                             </ul>
                         </li>
+    -->
 
                         <li class="dropdown"><a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
                                 <div class="peer mR-10"><img class="w-2r bdrs-50p" src="
@@ -165,7 +171,7 @@
                                 {{ url('storage/users/user.png') }}
                                 @endif
                                 " alt="Foto perfil {{ auth()->user()->name }}"></div>
-                                
+
                                 <div class="peer"><span class="fsz-sm c-grey-900">{{ collect(explode(' ', auth()->user()->name))->slice(0, 1)->implode(' ') }}</span></div>
                             </a>
 
@@ -190,8 +196,7 @@
                 </div>
             </main>
 
-            <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600"><span>Copyright © Automax 2020 <a href="" target="_blank" title=""> PreWare Técnologia</a>. Todos os direitos
-                    reservados.</span>
+            <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600"><span>Copyright © 2020 | <a href="{{ url('/') }}" target="_blank" title="Mercado de Serviços"> Mercado de Serviços</a></span>
                 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="c4c66d0321ac18206eb8bb66-text/javascript"></script>
                 <script type="c4c66d0321ac18206eb8bb66-text/javascript">
                     window.dataLayer = window.dataLayer || [];

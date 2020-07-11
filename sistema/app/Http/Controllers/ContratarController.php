@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Chat;
 use App\Contratar;
 use App\servico;
 use Illuminate\Http\Request;
@@ -20,8 +21,9 @@ class ContratarController extends Controller
 
     public function contratos()
     {
+        $servico = servico::where('user_id', auth()->user()->id)->get();
 
-        $contrato = Contratar::all();
+        $contrato = Contratar::with('servico')->with('chat')->get();
 
         return view('servico/contratos')->with('contrato', $contrato);
     }
@@ -35,7 +37,7 @@ class ContratarController extends Controller
         if ($update) {
             return redirect()->route('contratos')->with('success', 'O contrato foi cancelado com sucesso!');
         } else {
-            return redirect()->back()->with('error', 'Falha ao cancelar o contrato...');
+            return redirect()->back()->with('error', 'Falha ao cancelar o contrato!');
         }
     }
 
@@ -79,9 +81,8 @@ class ContratarController extends Controller
     public function servicosContratados()
     {
         $id = auth()->user()->id;
-        $servico = Contratar::where("user_id", $id)->with('servico')->get();
-
-
+        $servico = Contratar::where("user_id", $id)->with('servico')->with('chat')->get();
+        
         return view('servico/servico_contratado')->with('servico', $servico);
     }
 }

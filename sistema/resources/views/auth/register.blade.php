@@ -2,10 +2,10 @@
 
 @section('conteudo')
 
-<div class="panel panel-default text-white">
+<div class="panel panel-default">
     <div class="panel-heading">
         <div class="panel-heading">
-            <h2 class="display-4 text-white">Cadastre-se</h2>
+            <h2 class="display-4">Cadastre-se</h2>
         </div>
     </div>
 

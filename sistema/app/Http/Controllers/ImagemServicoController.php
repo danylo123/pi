@@ -17,10 +17,12 @@ class ImagemServicoController extends Controller
         $this->middleware('auth');
     }
 
-    public function cadastrar($id){
+    public function cadastrar($id)
+    {
 
-        return view('servico/cadastro_imagem')->with('servico_id', $id);
+        $imagem = ImagemServico::where("servico_id", $id)->get();
 
+        return view('servico/cadastro_imagem')->with('servico_id', $id)->with('imagem', $imagem);
     }
 
     public function store(Request $resquest)
@@ -31,7 +33,7 @@ class ImagemServicoController extends Controller
 
         $imagem->arquivo = $resquest->arquivo;
         $imagem->servico_id = $resquest->servico_id;
-        
+
         // Define um aleatório para o arquivo baseado no timestamps atual
         $name = uniqid(date('HisYmd'));
 
@@ -61,11 +63,24 @@ class ImagemServicoController extends Controller
 
 
         if ($insert) {
-            return redirect()->route('servicos')->with('success', 'Imagem inserida com sucesso');
+            return redirect()->back()->with('success', 'Imagem inserida com sucesso');
         } else {
             return redirect()->back()->with('error', 'Falha ao salvar o imagem...');
         }
     }
 
+    public function destroy($id)
+    {
+        // Criando um objeto com o id recebido pela rota                
+        $imagem = ImagemServico::destroy($id);
 
+        // Excluindo este objeto
+        //$usuario->delete();
+
+        if ($imagem) {
+            return redirect()->back()->with('success', 'Imagem removida com sucesso!');
+        } else {
+            return redirect()->back()->with('error', 'Falha ao remover o imagem!');
+        }
+    }
 }

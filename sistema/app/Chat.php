@@ -4,20 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contratar extends Model
+class Chat extends Model
 {
     protected $fillable = [
         'id',
-        'servico_id',
+        'contratar_id',
         'user_id',
-        'estado',
-        'observacao'
+        'mensagem',
+        'visto'
     ];
 
-    public function servico()
+    public function contratar()
     {
         return $this->belongsTo(
-            servico::class
+            Contratar::class
         );
     }
 
@@ -25,13 +25,6 @@ class Contratar extends Model
     {
         return $this->belongsTo(
             User::class
-        );
-    }
-
-    public function chat()
-    {
-        return  $this->hasMany(
-            Chat::class
         );
     }
 }

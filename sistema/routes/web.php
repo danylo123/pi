@@ -26,13 +26,13 @@ Route::get('/logout', 'PagesController@Logout');
 
 Route::get('/index', 'PagesController@index'); // pagina inicial 
 
+
 Route::get('/usuario/cadastro', 'UsuarioController@cadastroUsuario'); // Tela Cadastro Usuario
 Route::post('/usuario/store', 'UsuarioController@store'); // Tela Cadastro Usuario
 Route::get('/usuario/editar/{id}', 'UsuarioController@editarUsuario'); // Tela Editar Usuario
 Route::post('/usuario/alterar', 'UsuarioController@alterar'); // Tela Cadastro Usuario
 Route::get('/usuario/excluir/{id}', 'UsuarioController@excluir'); // Tela Editar Usuario
 Route::get('/usuarios', 'UsuarioController@usuarios'); // Tela Listar Usuario
-
 
 Route::get('/servico/cadastro', 'ServicoController@cadastroServico'); // Tela Cadastro Serviço
 Route::post('/servico/store', 'ServicoController@store'); // Tela Cadastro Usuario
@@ -42,6 +42,7 @@ Route::get('/servico/excluir/{id}', 'ServicoController@excluir'); // Tela Editar
 Route::get('/servicos', 'ServicoController@listarServico')->name('servicos'); // Tela Listar Serviço
 Route::get('/servico/{id}/imagem', 'ImagemServicoController@cadastrar'); // Tela Editar Serviço
 Route::post('/servico/imagem/store', 'ImagemServicoController@store'); // Tela Cadastro Usuario
+Route::get('/servico/imagem/destroy/{id}', 'ImagemServicoController@destroy'); // Tela Cadastro Usuario
 
 Route::get('/servico_todos', 'ServicoController@listarTodosServico')->name('servico_todos'); // Tela Cadastro Usuario
 Route::get('/servico/contratar/{id}', 'ContratarController@cadastroContrato'); // Tela Cadastro Usuario
@@ -68,6 +69,10 @@ Route::get('/duvidas', 'PagesController@duvidas'); // Tela Listar Serviço
 
 Route::get('/ouvidoria', 'OuvidoriaController@ouvidoria')->name('ouvidoria'); // Tela Listar Serviço
 Route::post('/ouvidoria/store', 'OuvidoriaController@store')->name('ouvidoria/store'); // Tela Listar Serviço
+Route::get('/ouvidoria/adm', 'OuvidoriaController@adm')->name('ouvidoria/adm'); // Tela Listar Serviço
+Route::get('/ouvidoria/chamado/{id}', 'OuvidoriaController@chamado')->name('ouvidoria/chamado'); // Tela Listar Serviço
+Route::get('/ouvidoria/chamado/respostas/{id}', 'OuvidoriaController@resposta')->name('ouvidoria/resposta'); // Tela Listar Serviço
+Route::post('/ouvidoria/chamado/resposta/update', 'OuvidoriaController@edit')->name('ouvidoria/chamado/resposta/update'); // Tela Listar Serviço
 
 
 Route::get('/perfil', 'PerfilController@perfil')->name('perfil')->middleware('auth'); // Tela Perfil
@@ -76,9 +81,5 @@ Route::get('/perfil/endereco', 'EnderecoController@endereco')->name('perfil/ende
 Route::post('/perfil/endereco/store', 'EnderecoController@store');
 
 
-
-
-
-
-
-
+Route::get('/chat/{id}/servico', 'ChatController@chat')->name('chat/{id}/servico')->middleware('auth'); // Tela Perfil
+Route::post('/chat/store', 'ChatController@store')->name('chat/store')->middleware('auth'); // Tela Perfil
