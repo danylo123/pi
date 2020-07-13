@@ -18,6 +18,7 @@ class SiteController extends Controller
         // Busca todos os dados do banco de dados pelo id do usuário
         $servico = servico::all();
 
+
         return view('website/pesquisar')->with('servico', $servico);
     }
 

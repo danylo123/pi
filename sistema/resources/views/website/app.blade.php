@@ -73,14 +73,19 @@
             @yield('conteudo')
 
         </div><!-- /.container -->
-
-
-        <!-- FOOTER -->
-        <footer class="footer" style="bottom: 0; position:fixed; align-content:center;">
-<!--            <p class="float-right"><a href="#">Voltar ao topo</a></p> -->
-            <p>Copyright &copy; 2020 | Mercado de Serviços</p>
+        <footer class="footer fixed-bottom" style="position: relative;
+    bottom: 0;
+    width: 100%;
+    margin: auto auto;
+    padding-top: 15%">
+            <div class="container text-center">
+                <p class="navbar-text col-md-12 col-sm-12 col-xs-12">Copyright &copy; 2020 | Mercado de Serviços</p>
+            </div>
         </footer>
     </main>
+
+    <!-- FOOTER -->
+
 
     <!-- Principal JavaScript do Bootstrap
     ================================================== -->

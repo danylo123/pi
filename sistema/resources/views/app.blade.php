@@ -84,7 +84,7 @@
                         <div class="peer peer-greed"><a class="sidebar-link td-n" href="{{ url('/') }}" class="td-n">
                                 <div class="peers ai-c fxw-nw">
                                     <div class="peer">
-                                        <div class="logo"><img src="{{ url('/images/logo.png') }}" width="65" alt="40"></div>
+                                        <div class="logo"><img src="{{ url('/images/mlogo.png') }}" width="65" alt="40"></div>
                                     </div>
                                     <div class="peer peer-greed">
                                         <h5 class="lh-1 mB-0 logo-text">Mercado de Serviços</h5>

@@ -45,6 +45,6 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-AutoMax,<br>Mercado de Serviços
+Mercado de Serviços
 @endif
 @endcomponent

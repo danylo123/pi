@@ -90,7 +90,6 @@ class ServicoController extends Controller
         servico::find($id);
         $servico = servico::where("user_id", $id)->with('arquivo')->get();
 
-
         // Chama a view listar e envia os dados buscados
         return view('servico/listar')->with('servico', $servico);
     }
